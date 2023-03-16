@@ -1,19 +1,26 @@
-// Import the express in typescript file
 import express from 'express';
- 
-// Initialize the express engine
-const app: express.Application = express();
- 
-// Take a port 3000 for running server.
-const port: number = 3000;
- 
-// Handling '/' Request
-app.get('/', (_req, _res) => {
-    _res.send("TypeScript With Express");
-});
- 
-// Server setup
-app.listen(port, () => {
-    console.log(`TypeScript with Express
-         http://localhost:${port}/`);
-});
+const app = express();
+import dotenv from 'dotenv';
+dotenv.config();
+
+//to handle errors throught middleware
+import 'express-async-errors'
+
+// db and authenticateUser
+import connectDB from './db/connect';
+
+app.use(express.json());
+
+const port = process.env.PORT || 5000;
+
+const start = async () => {
+    try {
+        await connectDB(process.env.MONGO_URL || '');
+        app.listen(port, () => {
+            console.log(`Server is listening on port ${port}...`);
+        });
+    } catch (error) {
+        console.log('error connecting to database: ', error);
+    }
+};
+start()
