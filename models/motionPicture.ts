@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const motionPictureSchema = new mongoose.Schema({
+const MotionPictureSchema = new mongoose.Schema({
   title: {
     type: String,
     required: [true, 'Please provide a title'],
@@ -32,6 +32,8 @@ const motionPictureSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   }
-})
+},
+  { timestamps: true }
+)
 
-export default mongoose.model('MotionPicture', motionPictureSchema)
+export default mongoose.model('MotionPicture', MotionPictureSchema)
