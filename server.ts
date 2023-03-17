@@ -9,7 +9,13 @@ import 'express-async-errors'
 // db and authenticateUser
 import connectDB from './db/connect';
 
+// middlewares
+import errorHandlerMiddleware from './middleware/error-handler';
+
 app.use(express.json());
+
+
+app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 5000;
 
