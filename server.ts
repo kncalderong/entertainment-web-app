@@ -11,10 +11,11 @@ import connectDB from './db/connect';
 
 // middlewares
 import errorHandlerMiddleware from './middleware/error-handler';
+import notFoundMiddleware from './middleware/not-found';
 
 app.use(express.json());
 
-
+app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 5000;
