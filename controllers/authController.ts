@@ -29,4 +29,29 @@ const register = async (req: Request, res: Response) => {
   })
 }
 
+
+const login = async (req: Request, res: Response) => {
+  const { email, password } = req.body;
+  
+  if (!email || !password) {
+    throw new BadRequestError('please provide all values')
+  }
+  
+  const user = await User.findOne({ email }).select('+password'); //here I have to include again the password field of the document 'couse I need to compare it with the input one 
+  if (!user) {
+    throw new UnAuthenticatedError('Invalid Credentials');
+  }
+  
+  const isPasswordCorrect = await user.comparePassword(password);
+  if (!isPasswordCorrect) {
+    throw new UnAuthenticatedError('Invalid Credentials');
+  }
+  
+  const token = user.createJWT()
+  attachCookie({ res, token });
+  user.password = undefined; // here I am removing again the hashed password from the response
+  
+  res.status(StatusCodes.OK).json({ user });
+}
+
 export {register}
