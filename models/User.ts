@@ -2,17 +2,20 @@ import mongoose from "mongoose"
 import validator from 'validator'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import {Schema, Model, Document } from 'mongoose';
 
-interface User {
-  email: string
+
+interface IUser extends Document {
+  email: string;
+  password: string;
 }
 
-const UserSchema = new mongoose.Schema({
+const UserSchema: Schema = new mongoose.Schema<IUser>({
   email: {
     type: String,
     required: [true, 'Please provide email'],
     validate: {
-      validator: function (this: User) { //this is invoked when a user is created or modified with save() method
+      validator: function (this: IUser) { //this is invoked when a user is created or modified with save() method
         return validator.isEmail
       },
       message: 'Please provide a valid email',

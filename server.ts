@@ -13,7 +13,7 @@ import connectDB from './db/connect';
 import errorHandlerMiddleware from './middleware/error-handler';
 import notFoundMiddleware from './middleware/not-found';
 
-app.use(express.json());
+app.use(express.json()); //to allow reading body in json format
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware);
