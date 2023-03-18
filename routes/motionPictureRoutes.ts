@@ -1,7 +1,8 @@
 import express from 'express';
 const router = express.Router();
-import { createMotionPicture } from '../controllers/motionPictureController';
+import { createMotionPicture, getAllMotionPictures } from '../controllers/motionPictureController';
+import authenticateUser from '../middleware/auth';
 
-router.route('/').post(createMotionPicture)
+router.route('/').post(createMotionPicture).get(authenticateUser, getAllMotionPictures)
 
 export default router
