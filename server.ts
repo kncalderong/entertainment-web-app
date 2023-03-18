@@ -9,6 +9,9 @@ import 'express-async-errors'
 // db and authenticateUser
 import connectDB from './db/connect';
 
+//to get the cookies info in the  requests
+import cookieParser from 'cookie-parser'
+
 // routers
 import authRouter from './routes/authRoutes';
 
@@ -17,6 +20,7 @@ import errorHandlerMiddleware from './middleware/error-handler';
 import notFoundMiddleware from './middleware/not-found';
 
 app.use(express.json()); //to allow reading body in json format
+app.use(cookieParser())
 
 app.use('/api/v1/auth', authRouter)
 
