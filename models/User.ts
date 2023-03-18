@@ -16,7 +16,7 @@ const UserSchema: Schema = new mongoose.Schema<IUser>({
     required: [true, 'Please provide email'],
     validate: {
       validator: function (this: IUser) { //this is invoked when a user is created or modified with save() method
-        return validator.isEmail
+        return validator.isEmail(this.email)
       },
       message: 'Please provide a valid email',
     },
