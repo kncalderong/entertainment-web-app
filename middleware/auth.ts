@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { UnAuthenticatedError } from '../errors/index.js';
+import { UnAuthenticatedError } from '../errors';
 import {Request, Response, NextFunction} from 'express'
 
 export interface RequestWithUser extends Request {

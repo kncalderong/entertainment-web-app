@@ -7,7 +7,7 @@ import {
   getCurrentUser,
   logout
 } from '../controllers/authController';
-import authenticateUser from '../middleware/auth.js';
+import authenticateUser from '../middleware/auth';
 
 router.route('/register').post( register);
 router.route('/login').post(login);
