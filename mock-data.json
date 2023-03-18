@@ -345,24 +345,24 @@
     "title": "Dogs",
     "thumbnail": {
       "regular": {
-        "small": "./assets/thumbnails/dogs/regular/small.jpg",
-        "medium": "./assets/thumbnails/dogs/regular/medium.jpg",
-        "large": "./assets/thumbnails/dogs/regular/large.jpg"
+        "small": "https://user-images.githubusercontent.com/80135017/226140016-d9a5d438-242b-4ddd-94a6-8aac156e8395.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226140015-c6b38676-693f-4971-89ac-b1c20535219d.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226140014-0203fe76-c9e2-4cd9-be30-a128b4f0dedd.jpg"
       }
     },
     "year": 2016,
     "category": "TV Series",
     "rating": "E",
-    "isBookmarked": true,
+
     "isTrending": false
   },
   {
     "title": "Asia in 24 Days",
     "thumbnail": {
       "regular": {
-        "small": "https://user-images.githubusercontent.com/80135017/226140016-d9a5d438-242b-4ddd-94a6-8aac156e8395.jpg",
-        "medium": "https://user-images.githubusercontent.com/80135017/226140015-c6b38676-693f-4971-89ac-b1c20535219d.jpg",
-        "large": "https://user-images.githubusercontent.com/80135017/226140014-0203fe76-c9e2-4cd9-be30-a128b4f0dedd.jpg"
+        "small": "https://user-images.githubusercontent.com/80135017/226140242-aafec439-71cb-4bb3-bd99-01bc4e6b217c.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226140241-1ac22787-b8cc-4017-a0b7-8c94ac41ed5c.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226140240-6a802ce3-cff1-43b9-ad3a-e178227a9271.jpg"
       }
     },
     "year": 2020,
