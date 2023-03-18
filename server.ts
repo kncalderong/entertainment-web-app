@@ -9,11 +9,16 @@ import 'express-async-errors'
 // db and authenticateUser
 import connectDB from './db/connect';
 
+// routers
+import authRouter from './routes/authRoutes';
+
 // middlewares
 import errorHandlerMiddleware from './middleware/error-handler';
 import notFoundMiddleware from './middleware/not-found';
 
 app.use(express.json()); //to allow reading body in json format
+
+app.use('/api/v1/auth', authRouter)
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware);

@@ -1,4 +1,4 @@
-import jwt, {JwtPayload} from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import { UnAuthenticatedError } from '../errors/index.js';
 import {Request, Response, NextFunction} from 'express'
 
@@ -16,7 +16,6 @@ const auth = async (req: RequestWithUser, res: Response, next: NextFunction) => 
   try {
     const payload: any = jwt.verify(token, process.env.JWT_SECRET || '');
     console.log('payload from auth middleware: ' + payload);
-    
     req.user = { userId: payload.userId };
     next();
   } catch (error) {

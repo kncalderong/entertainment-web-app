@@ -4,7 +4,7 @@ import { BadRequestError, UnAuthenticatedError } from '../errors';
 import { Request, Response } from 'express';
 import attachCookie from '../utils/attachCookie';
 
-
+/* ---------REGISTER ---------- */
 const register = async (req: Request, res: Response) => {
   const { email, password } = req.body;
   
@@ -18,8 +18,8 @@ const register = async (req: Request, res: Response) => {
     throw new BadRequestError('Email already in use')
   }
 
-  const user = await User.create({email, password})
-  
+  const user =  await User.create({ email, password })
+
   const token = user.createJWT()
   attachCookie({ res, token })
   res.status(StatusCodes.CREATED).json({
@@ -29,7 +29,7 @@ const register = async (req: Request, res: Response) => {
   })
 }
 
-
+/* ---------LOGIN ---------- */
 const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
   
@@ -54,4 +54,10 @@ const login = async (req: Request, res: Response) => {
   res.status(StatusCodes.OK).json({ user });
 }
 
-export {register}
+/* const getCurrentUser = async (req: Request, res: Response) => {
+  const userId = req.user.userId || ''
+  
+  const user = await User.findOne({ _id: req.user.userId });
+  res.status(StatusCodes.OK).json({ user});
+}; */
+export {register, login}
