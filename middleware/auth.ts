@@ -3,7 +3,7 @@ import { UnAuthenticatedError } from '../errors/index.js';
 import {Request, Response, NextFunction} from 'express'
 
 export interface RequestWithUser extends Request {
-  user: {
+  user?: {
     userId: string
   }
 }
@@ -16,7 +16,7 @@ const auth = async (req: RequestWithUser, res: Response, next: NextFunction) => 
   try {
     const payload: any = jwt.verify(token, process.env.JWT_SECRET || '');
     console.log('payload from auth middleware: ' + payload);
-    req.user = { userId: payload.userId };
+    req.user = { userId: payload.userId }; //here I am passing the user info in the request object to further controllers
     next();
   } catch (error) {
     throw new UnAuthenticatedError('Authentication Invalid');

@@ -1,8 +1,10 @@
+import { RequestWithUser } from './../middleware/auth';
 import { StatusCodes } from 'http-status-codes';
 import User from "../models/User";
 import { BadRequestError, UnAuthenticatedError } from '../errors';
 import { Request, Response } from 'express';
 import attachCookie from '../utils/attachCookie';
+
 
 /* ---------REGISTER ---------- */
 const register = async (req: Request, res: Response) => {
@@ -54,10 +56,10 @@ const login = async (req: Request, res: Response) => {
   res.status(StatusCodes.OK).json({ user });
 }
 
-/* const getCurrentUser = async (req: Request, res: Response) => {
-  const userId = req.user.userId || ''
-  
-  const user = await User.findOne({ _id: req.user.userId });
+/* ---------GET CURRENT USER  ---------- */
+const getCurrentUser = async (req: RequestWithUser, res: Response) => { 
+  const user = await User.findOne({ _id: req.user?.userId || ''}); // this is based on the token authorization middleware, so every time the front end reloads the page, this request is made to get the info from the current user again available
   res.status(StatusCodes.OK).json({ user});
-}; */
-export {register, login}
+};
+
+export {register, login, getCurrentUser}

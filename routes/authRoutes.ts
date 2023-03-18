@@ -3,11 +3,13 @@ const router = express.Router();
 
 import {
   register,
-  login
+  login,
+  getCurrentUser
 } from '../controllers/authController';
 import authenticateUser from '../middleware/auth.js';
 
 router.route('/register').post( register);
-router.route('/login').post( login);
+router.route('/login').post(login);
+router.route('/getCurrentUser').get(authenticateUser ,getCurrentUser);
 
 export default router;
