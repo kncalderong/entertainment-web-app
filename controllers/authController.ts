@@ -62,4 +62,13 @@ const getCurrentUser = async (req: RequestWithUser, res: Response) => {
   res.status(StatusCodes.OK).json({ user});
 };
 
-export {register, login, getCurrentUser}
+/* ---------Logout  ---------- */
+const logout = async (req: RequestWithUser, res: Response) => {
+  res.cookie('token', 'logout', {
+    httpOnly: true,
+    expires: new Date(Date.now()), //expires immediately the coookie, so any further request won't have a valid cookie and in  the front I can redirect to landing page
+  });
+  res.status(StatusCodes.OK).json({ msg: 'user logged out!' });
+};
+
+export {register, login, getCurrentUser, logout}
