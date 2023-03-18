@@ -14,6 +14,7 @@ import cookieParser from 'cookie-parser'
 
 // routers
 import authRouter from './routes/authRoutes';
+import motionPictureRouter from './routes/motionPictureRoutes';
 
 // middlewares
 import errorHandlerMiddleware from './middleware/error-handler';
@@ -23,6 +24,7 @@ app.use(express.json()); //to allow reading body in json format
 app.use(cookieParser())
 
 app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/motion-picture', motionPictureRouter)
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware);
