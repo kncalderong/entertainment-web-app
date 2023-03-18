@@ -11,7 +11,7 @@ import authenticateUser from '../middleware/auth';
 
 router.route('/register').post( register);
 router.route('/login').post(login);
-router.route('/logout').get(login);
+router.route('/logout').get(logout);
 router.route('/getCurrentUser').get(authenticateUser ,getCurrentUser);
 
 export default router;
