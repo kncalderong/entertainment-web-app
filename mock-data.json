@@ -1,0 +1,429 @@
+[
+  {
+    "title": "Beyond Earth",
+    "thumbnail": {
+      "trending": {
+        "small": "https://user-images.githubusercontent.com/80135017/226129363-9834730c-a804-4374-b01b-677e48a570f7.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226129362-9e8263a0-b49e-4d74-8b2e-d16cc78acea7.jpg"
+      },
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226129327-0db18496-e03d-43c5-91b3-d1116b7a77f1.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226129326-dcdf679b-ba36-4e54-a9b9-5052d1aac41d.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226129306-4d9ac063-335b-4eb7-aac5-f96c1e52d01d.jpg"
+      }
+    },
+    "year": 2019,
+    "category": "Movie",
+    "rating": "PG",
+    "isTrending": true
+  },
+  {
+    "title": "Bottom Gear",
+    "thumbnail": {
+      "trending": {
+        "small": "https://user-images.githubusercontent.com/80135017/226138635-2eaf80a4-feda-45cb-9720-0de6391abe93.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226138634-d4a151c8-b91a-4dc0-82cd-8fca02c9b864.jpg"
+      },
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226138609-7bb5542f-88cb-4c13-a06b-4e26ef216069.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226138608-7e2cf1b5-c4b8-467e-8a0c-fe1076f463f9.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226138607-6d880925-ffaf-40f7-ada1-6f1cc928af8b.jpg"
+      }
+    },
+    "year": 2021,
+    "category": "Movie",
+    "rating": "PG",
+    "isTrending": true
+  },
+  {
+    "title": "Undiscovered Cities",
+    "thumbnail": {
+      "trending": {
+        "small": "https://user-images.githubusercontent.com/80135017/226138687-59dd880a-6446-4665-85cf-04974bf5a068.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226138686-346b3e1f-678c-497f-b377-743611f53469.jpg"
+      },
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226138656-247d3009-9e23-4571-b214-beab230a723b.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226138658-8d629998-afaf-4b01-be17-e754379b9771.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226138656-247d3009-9e23-4571-b214-beab230a723b.jpg"
+      }
+    },
+    "year": 2019,
+    "category": "TV Series",
+    "rating": "E",
+    "isTrending": true
+  },
+  {
+    "title": "1998",
+    "thumbnail": {
+      "trending": {
+        "small": "https://user-images.githubusercontent.com/80135017/226138907-783ca9c6-5eca-411d-99c0-fec89ba57624.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226138904-03ec23bc-4307-4ead-9816-d40339d4e65b.jpg"
+      },
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226138810-a6d3d092-36f8-4f1a-ac1d-595d3bc46c78.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226138809-3abae65c-a800-4ff2-bea3-ff1bbebf9e32.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226138808-702f56cb-6859-40e1-bb67-e675d305f7f3.jpg"
+      }
+    },
+    "year": 2021,
+    "category": "Movie",
+    "rating": "18+",
+    "isTrending": true
+  },
+  {
+    "title": "Dark Side of the Moon",
+    "thumbnail": {
+      "trending": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139031-2edaa358-b556-470d-b03f-730737e5c508.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139030-fff4da18-4547-407b-9c44-7716332da5dc.jpg"
+      },
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139010-57cf9646-43e1-463d-80da-11060f5e3227.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139009-1ba931c1-61f3-4f2e-b1bb-6d5880bdc729.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139007-ba058fa7-df0a-4840-aeac-2a091984880b.jpg"
+      }
+    },
+    "year": 2018,
+    "category": "TV Series",
+    "rating": "PG",
+    "isTrending": true
+  },
+  {
+    "title": "The Great Lands",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139083-766ea7f2-18c7-4763-88bc-b9d7124c7c3d.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139082-5243f60c-501b-4fc7-911c-dfde5fc70bbd.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139077-170054b1-d38e-43d4-b0c1-800e55693f53.jpg"
+      }
+    },
+    "year": 2019,
+    "category": "Movie",
+    "rating": "E",
+    "isTrending": false
+  },
+  {
+    "title": "The Diary",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139128-2dc4f812-fee0-43be-9e8b-75a6e7cbd141.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139127-51556627-00c2-4fcf-8945-56d774400ddd.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139125-e2ee80ca-abc0-4867-b4d5-c192b96cb676.jpg"
+      }
+    },
+    "year": 2019,
+    "category": "TV Series",
+    "rating": "PG",
+    "isTrending": false
+  },
+  {
+    "title": "Earth’s Untouched",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139159-59ede2dc-8ef6-46c8-b7a1-cd61e0f2501e.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139158-dafa8edd-309e-4604-a4bb-911b328dd3b1.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139156-17cd4eb4-cecd-443d-853b-efa8694c06c2.jpg"
+      }
+    },
+    "year": 2017,
+    "category": "Movie",
+    "rating": "18+",
+    "isTrending": false
+  },
+  {
+    "title": "No Land Beyond",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139185-660c848f-fbb2-4e66-b72e-1a7e859f295d.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139184-54212250-ce81-45e2-bb4b-64da61ffa10d.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139183-16f3028e-cd7c-4cc8-bb36-e68a87023ca8.jpg"
+      }
+    },
+    "year": 2019,
+    "category": "Movie",
+    "rating": "E",
+    "isTrending": false
+  },
+  {
+    "title": "During the Hunt",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139211-5b610bcf-c3d5-4279-b896-005aa91967cb.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139210-2950b142-e598-4f88-86ec-f272177c6007.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139209-6598cc44-4b04-446d-a914-f5aa23f2e43f.jpg"
+      }
+    },
+    "year": 2016,
+    "category": "TV Series",
+    "rating": "PG",
+    "isTrending": false
+  },
+  {
+    "title": "Autosport the Series",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139274-f181ac2a-cd47-4d8f-8109-62e5373b0ae7.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139273-e8966404-493d-4032-8821-02666309171d.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139272-32322e65-d436-4f73-95fc-4cdcc9ee5125.jpg"
+      }
+    },
+    "year": 2016,
+    "category": "TV Series",
+    "rating": "18+",
+    "isTrending": false
+  },
+  {
+    "title": "Same Answer II",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139315-f88c002c-59de-461a-9d33-3b1ad57a101f.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139314-08bdcb8b-e8e7-4b91-a3ec-e51cc4626112.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139313-719ac08d-0209-4d1a-b859-1ffa1ea1e49d.jpg"
+      }
+    },
+    "year": 2017,
+    "category": "Movie",
+    "rating": "E",
+    "isTrending": false
+  },
+  {
+    "title": "Below Echo",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139329-e56ca5c6-cc9f-4873-9272-b2025382b24d.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139328-2908c15e-ffd3-440f-9fbb-79be2c99b851.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139326-3005f1bd-853f-4e16-a785-a569e23e3e5f.jpg"
+      }
+    },
+    "year": 2016,
+    "category": "TV Series",
+    "rating": "PG",
+    "isTrending": false
+  },
+  {
+    "title": "The Rockies",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139508-0d1acb21-5542-4f90-b74d-0399bd17eb17.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139505-8a3b641f-2342-4755-ba15-08128c001a39.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139500-d96d2922-24cb-4ff5-bbf6-cb4dc486901c.jpg"
+      }
+    },
+    "year": 2015,
+    "category": "TV Series",
+    "rating": "E",
+    "isTrending": false
+  },
+  {
+    "title": "Relentless",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139655-142b48d7-59c5-4ab0-8a2b-6d183a21a8ae.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139654-18547f65-6edb-4b5d-b686-d1603121ca8a.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139653-9b45d8ef-1afc-4f59-bf40-e103dc0a6059.jpg"
+      }
+    },
+    "year": 2017,
+    "category": "Movie",
+    "rating": "PG",
+    "isTrending": false
+  },
+  {
+    "title": "Community of Ours",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139682-4ba91a23-dfb1-4418-ae77-d3ac0f25baae.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139681-b61cf2da-00b4-4417-a4ba-f23ed8d0f9f6.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139680-c830df2f-e678-4d63-80b8-15b263f49549.jpg"
+      }
+    },
+    "year": 2018,
+    "category": "TV Series",
+    "rating": "18+",
+    "isTrending": false
+  },
+  {
+    "title": "Van Life",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139703-60601963-fee2-4cc5-87f4-c6e0640b04ca.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139702-dd741feb-5b5e-4db7-9faf-bd66e754b2ad.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139700-fc4ea94a-74b5-46a4-9ec3-5c059db008b8.jpg"
+      }
+    },
+    "year": 2015,
+    "category": "Movie",
+    "rating": "PG",
+    "isTrending": false
+  },
+  {
+    "title": "The Heiress",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139736-75901c9a-03da-483a-98e0-6d65c608e070.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139735-f7205243-9a37-4022-ab32-c57d9fd18ac9.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139734-d054844a-f2b5-4df4-8422-a8ad7ad8e045.jpg"
+      }
+    },
+    "year": 2021,
+    "category": "Movie",
+    "rating": "PG",
+    "isTrending": false
+  },
+  {
+    "title": "Off the Track",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139801-bda5b895-791b-473f-b67e-3ad41a298293.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139800-c62f6b40-972d-41f2-88ff-4ffec53aef85.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139796-7f11acc4-b15a-4f49-a9d4-837acdfd904f.jpg"
+      }
+    },
+    "year": 2017,
+    "category": "Movie",
+    "rating": "18+",
+    "isTrending": false
+  },
+  {
+    "title": "Whispering Hill",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139886-975bc9f1-b155-4556-8bb7-10661becd729.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139884-0697ca0d-7d0c-4505-9c2e-607c9dff797f.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139883-8585304e-6a5b-4266-b69f-9026031d1aa6.jpg"
+      }
+    },
+    "year": 2017,
+    "category": "Movie",
+    "rating": "E",
+    "isTrending": false
+  },
+  {
+    "title": "112",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139908-8e409225-2413-4d12-b70a-719661870e38.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139907-42fd7aa7-eb55-4f4a-8057-89509b57b316.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139906-7f00ad2c-c2eb-4f4f-bc4f-53289df4ee63.jpg"
+      }
+    },
+    "year": 2013,
+    "category": "TV Series",
+    "rating": "PG",
+    "isTrending": false
+  },
+  {
+    "title": "Lone Heart",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139939-620951d1-7bdd-4ba6-9f38-e07db71380b3.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139938-7a9604d1-1b6b-4681-ba15-dcc65615d241.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139936-3b5bafcc-9f3d-46c9-b78e-c41394c5b5c8.jpg"
+      }
+    },
+    "year": 2017,
+    "category": "Movie",
+    "rating": "E",
+    "isTrending": false
+  },
+  {
+    "title": "Production Line",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226139980-65efe475-8c99-4157-b561-5192dfdfcd33.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226139979-aa5813fb-ae63-4222-a491-bbab35024ca4.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226139978-130955d7-b951-40eb-8ecd-79368d312964.jpg"
+      }
+    },
+    "year": 2018,
+    "category": "TV Series",
+    "rating": "PG",
+    "isTrending": false
+  },
+  {
+    "title": "Dogs",
+    "thumbnail": {
+      "regular": {
+        "small": "./assets/thumbnails/dogs/regular/small.jpg",
+        "medium": "./assets/thumbnails/dogs/regular/medium.jpg",
+        "large": "./assets/thumbnails/dogs/regular/large.jpg"
+      }
+    },
+    "year": 2016,
+    "category": "TV Series",
+    "rating": "E",
+    "isBookmarked": true,
+    "isTrending": false
+  },
+  {
+    "title": "Asia in 24 Days",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226140016-d9a5d438-242b-4ddd-94a6-8aac156e8395.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226140015-c6b38676-693f-4971-89ac-b1c20535219d.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226140014-0203fe76-c9e2-4cd9-be30-a128b4f0dedd.jpg"
+      }
+    },
+    "year": 2020,
+    "category": "TV Series",
+    "rating": "PG",
+    "isTrending": false
+  },
+  {
+    "title": "The Tasty Tour",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226140043-ecf5ff5f-6cb6-4aa7-8e4a-df1a472972c6.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226140042-64e2cec5-61e4-4568-aaf2-f8891ea03cec.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226140041-f6afdf07-5ab2-4e95-bba9-bf16d810ec32.jpg"
+      }
+    },
+    "year": 2016,
+    "category": "TV Series",
+    "rating": "PG",
+    "isTrending": false
+  },
+  {
+    "title": "Darker",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226140067-e211f3a2-39d1-4f4d-a6e2-511299114059.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226140066-71f86d5c-f0ae-46b3-9f0b-8689dd13cf52.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226140065-dd2af8bb-e2e1-4943-b593-d51f3ae0d998.jpg"
+      }
+    },
+    "year": 2017,
+    "category": "Movie",
+    "rating": "18+",
+    "isTrending": false
+  },
+  {
+    "title": "Unresolved Cases",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226140102-4613c29c-1ec9-47b3-8774-ba0c1dde7bd5.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226140101-416486cd-5e96-4ffc-bb59-b3d088fa687d.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226140099-858d8af2-92e8-4655-966c-6ca8fc40e7eb.jpg"
+      }
+    },
+    "year": 2018,
+    "category": "TV Series",
+    "rating": "18+",
+    "isTrending": false
+  },
+  {
+    "title": "Mission: Saturn",
+    "thumbnail": {
+      "regular": {
+        "small": "https://user-images.githubusercontent.com/80135017/226140128-5615ebf4-9e59-4db0-9463-4c7f8c9d2266.jpg",
+        "medium": "https://user-images.githubusercontent.com/80135017/226140127-71375b2a-8057-435b-8266-c57232b67157.jpg",
+        "large": "https://user-images.githubusercontent.com/80135017/226140125-29f5e513-5e35-4e21-81d9-fb63be5b397b.jpg"
+      }
+    },
+    "year": 2017,
+    "category": "Movie",
+    "rating": "PG",
+    "isTrending": false
+  }
+]
