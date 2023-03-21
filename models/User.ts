@@ -8,6 +8,7 @@ import {Schema, Model, Document } from 'mongoose';
 interface IUser extends Document {
   email: string;
   password: string;
+  bookmarks: [mongoose.Types.ObjectId]
 }
 
 const UserSchema: Schema = new mongoose.Schema<IUser>({
@@ -28,6 +29,11 @@ const UserSchema: Schema = new mongoose.Schema<IUser>({
     minlength: [6, 'Please provide at least 6 characters in your password'],
     select: false, //this is to do not share the password in the response back
   },
+  bookmarks: [{
+    type: mongoose.Types.ObjectId,
+    ref: 'MotionPicture',
+    default: []
+  }]
 })
 
 UserSchema.pre('save', async function () { //This is only triggered when a user is created or modified with save() method
