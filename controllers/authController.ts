@@ -62,7 +62,7 @@ const getCurrentUser = async (req: RequestWithUser, res: Response) => {
   res.status(StatusCodes.OK).json({ user});
 };
 
-/* ---------Logout  ---------- */
+/* ---------LOGOUT  ---------- */
 const logout = async (req: RequestWithUser, res: Response) => {
   res.cookie('token', 'logout', {
     httpOnly: true,
@@ -71,4 +71,24 @@ const logout = async (req: RequestWithUser, res: Response) => {
   res.status(StatusCodes.OK).json({ msg: 'user logged out!' });
 };
 
-export {register, login, getCurrentUser, logout}
+/* --------- UPDATE USER ---------- */
+const updateUser = async (req: RequestWithUser , res: Response) => {
+  const { bookmarks } = req.body;
+  if (!bookmarks) {
+    throw new BadRequestError('Please provide all values');
+  }
+  const user = await User.findOne({ _id: req.user?.userId || '' });
+  if (!user) {
+    throw new UnAuthenticatedError('Invalid Credentials');
+  }
+  user.bookmarks = bookmarks
+
+  await user.save();
+
+  const token = user.createJWT();
+  attachCookie({ res, token });
+
+  res.status(StatusCodes.OK).json({ user, bookmarks: user.bookmarks });
+};
+
+export {register, login, getCurrentUser, logout, updateUser}
