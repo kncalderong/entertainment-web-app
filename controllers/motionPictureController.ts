@@ -1,12 +1,15 @@
+import mongoose from 'mongoose';
 import MotionPicture from "../models/MotionPicture";
 import { Request, Response } from 'express';
 import { RequestWithUser } from './../middleware/auth';
 import { StatusCodes } from "http-status-codes";
 import { BadRequestError } from "../errors";
+import User from '../models/User';
 
 interface QueryObject {
   category?: string
   title?: any
+  _id?: any
 }
 
 
@@ -22,14 +25,20 @@ const createMotionPicture = async (req: Request, res: Response) => {
 
 
 /**----------- CET ALL MOTION PICTURES -----------**/
-const getAllMotionPictures = async (req: Request, res: Response) => {
-  const { category, sort = 'a-z', search } = req.query;
+const getAllMotionPictures = async (req: RequestWithUser, res: Response) => {
+  const { category, sort = 'a-z', search, bookmarks } = req.query;
   
+  const user = await User.findOne({ _id: req.user?.userId || '' });
+
   let queryObject: QueryObject = {}
   
   if (category && category !== 'all' && typeof category === 'string') {
     queryObject.category = category
   }
+  if (bookmarks && typeof bookmarks === 'string' && bookmarks === 'true' && user ) {
+    queryObject._id = {$in : user.bookmarks}
+  }
+  
   if (search) {
     queryObject.title = { $regex: search, $options: 'i' };
   }
