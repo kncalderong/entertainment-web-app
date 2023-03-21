@@ -53,13 +53,13 @@ const login = async (req: Request, res: Response) => {
   attachCookie({ res, token });
   user.password = undefined; // here I am removing again the hashed password from the response
   
-  res.status(StatusCodes.OK).json({ user });
+  res.status(StatusCodes.OK).json({ user, bookmarks: user?.bookmarks || [] });
 }
 
 /* ---------GET CURRENT USER  ---------- */
 const getCurrentUser = async (req: RequestWithUser, res: Response) => { 
   const user = await User.findOne({ _id: req.user?.userId || ''}); // this is based on the token authorization middleware, so every time the front end reloads the page, this request is made to get the info from the current user again available
-  res.status(StatusCodes.OK).json({ user});
+  res.status(StatusCodes.OK).json({ user, bookmarks: user?.bookmarks || [] });
 };
 
 /* ---------LOGOUT  ---------- */
