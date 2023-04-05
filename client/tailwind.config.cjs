@@ -8,15 +8,20 @@ module.exports = {
     colors: {
       'red': '#FC4747',
       'dark-blue': '#10141E',
-      'semi-dark-blue': '#161DF2',
+      'semi-dark-blue': '#161D2F',
       'greyish-blue': '#5A698F',
+      'grey':'#9ca3af',
       'white': '#FFF'
-      },
+    },
     extend: {
       fontFamily: {
         outfit: ['Outfit', 'sans-serif']
-      }
+      },
+      fontSize: {
+        'base-15': '15px'
+      },      
     },
+    
   },
   plugins: [],
 }
