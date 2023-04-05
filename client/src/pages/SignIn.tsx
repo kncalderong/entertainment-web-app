@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import LogoMovie from '../assets/logo.svg'
 import validateEmail from '../utils/emailValidator'
+import axios, {AxiosError} from 'axios'
 
 
 const SignIn = () => {
@@ -24,8 +25,6 @@ const SignIn = () => {
 
   const submitHandle = async (e: React.SyntheticEvent) => {
     e.preventDefault()
-    console.log('submiting', emailRef.current!.value.length);
-    console.log();
     if (emailRef.current!.value.length < 1) {
       emailRef.current!.focus()
       setEmailAlert((prevValue) => {
@@ -35,9 +34,7 @@ const SignIn = () => {
     }
     if (!validateEmail(emailRef.current!.value)) {
       emailRef.current!.focus()
-      setEmailAlert(() => {
-        return { alertMessage: 'Please provide a valid email', showAlert: true }
-      })
+      setEmailAlert({ alertMessage: 'Please provide a valid email', showAlert: true })
       return
     }
     if (passwordRef.current!.value.length < 6) {
@@ -60,6 +57,19 @@ const SignIn = () => {
         setRepeatPasswordAlert({ alertMessage: "Passwords should match", showAlert: true })
         return
       }
+    }
+    if (signInOption === "login") {
+      const urlLogin = "/api/v1/auth/login"
+      try {
+        const res = await axios.post(urlLogin, { email: emailRef.current!.value, password: passwordRef.current!.value })
+        const user = res.data.user
+        console.log("user: ", user);        
+      } catch (error) {
+        const err = error as AxiosError
+        if (err.response?.status === 401) {
+          setPasswordAlert({ alertMessage: 'Invalid credentials', showAlert: true })
+        }
+      }      
     }
   }
 
