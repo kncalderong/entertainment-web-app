@@ -1,7 +1,11 @@
 import { useState, useRef } from 'react'
 import LogoMovie from '../assets/logo.svg'
 import validateEmail from '../utils/emailValidator'
-import axios, {AxiosError} from 'axios'
+import axios, { AxiosError } from 'axios'
+
+interface ServerErrorResponse {
+  msg: string
+}
 
 
 const SignIn = () => {
@@ -22,6 +26,12 @@ const SignIn = () => {
     showAlert: false,
     alertMessage: "Can't be empty"
   })
+  
+  const resetForm = () => {
+    emailRef.current!.value = ""
+    passwordRef.current!.value = ""
+    repeatPasswordRef.current!.value = ""
+  }
 
   const submitHandle = async (e: React.SyntheticEvent) => {
     e.preventDefault()
@@ -70,6 +80,21 @@ const SignIn = () => {
           setPasswordAlert({ alertMessage: 'Invalid credentials', showAlert: true })
         }
       }      
+    }
+    if (signInOption === "register") {
+      const urlRegister = "/api/v1/auth/register"
+      try {
+        const res = await axios.post(urlRegister, { email: emailRef.current!.value, password: passwordRef.current!.value })
+        const user = res.data.user
+        console.log("user: ", user); 
+      } catch (error) {
+        const err = error as AxiosError
+        const errMsg = err.response!.data as ServerErrorResponse
+        if (errMsg.msg === "Email already in use") {
+          
+          setPasswordAlert({alertMessage: "Email already in use", showAlert: true })
+        }
+      }
     }
   }
 
