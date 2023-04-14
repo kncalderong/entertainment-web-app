@@ -24,11 +24,7 @@ const register = async (req: Request, res: Response) => {
 
   const token = user.createJWT()
   attachCookie({ res, token })
-  res.status(StatusCodes.CREATED).json({
-    user: {
-      email: user.email
-    }
-  })
+  res.status(StatusCodes.CREATED).json({ user, bookmarks: [] });
 }
 
 /* ---------LOGIN ---------- */
