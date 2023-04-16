@@ -1,7 +1,10 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import LogoMovie from '../assets/logo.svg'
 import validateEmail from '../utils/emailValidator'
 import axios, { AxiosError } from 'axios'
+import { useAppDispatch } from '../store/hooks'
+import { addUser } from '../features/user/userSlice'
+import { useNavigate } from 'react-router-dom'
 
 interface ServerErrorResponse {
   msg: string
@@ -26,6 +29,10 @@ const SignIn = () => {
     showAlert: false,
     alertMessage: "Can't be empty"
   })
+  
+  
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   
   const resetForm = () => {
     emailRef.current!.value = ""
@@ -73,7 +80,12 @@ const SignIn = () => {
       try {
         const res = await axios.post(urlLogin, { email: emailRef.current!.value, password: passwordRef.current!.value })
         const user = res.data.user
-        console.log("user: ", user);        
+        dispatch(
+          addUser({...user})
+        )
+        navigate('/')
+        console.log("user: ", user);   
+                
       } catch (error) {
         const err = error as AxiosError
         if (err.response?.status === 401) {
@@ -91,7 +103,6 @@ const SignIn = () => {
         const err = error as AxiosError
         const errMsg = err.response!.data as ServerErrorResponse
         if (errMsg.msg === "Email already in use") {
-          
           setPasswordAlert({alertMessage: "Email already in use", showAlert: true })
         }
       }
