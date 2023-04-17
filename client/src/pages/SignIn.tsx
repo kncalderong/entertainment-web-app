@@ -98,6 +98,10 @@ const SignIn = () => {
       try {
         const res = await axios.post(urlRegister, { email: emailRef.current!.value, password: passwordRef.current!.value })
         const user = res.data.user
+        dispatch(
+          addUser({...user})
+        )
+        navigate('/')
         console.log("user: ", user); 
       } catch (error) {
         const err = error as AxiosError
