@@ -1,9 +1,11 @@
 import React from 'react'
-import {Outlet} from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import Navbar from '../../components/Navbar'
+
 const SharedLayout = () => {
   return (
-    <main>
-      Shared Layout
+    <main className='w-full h-screen flex flex-col bg-dark-blue items-center'>
+      <Navbar/>
       <Outlet/>
     </main>
   )
