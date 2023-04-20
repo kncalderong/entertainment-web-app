@@ -1,16 +1,16 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import links, { NavLinkType } from '../utils/links'
 import LogoMovie from '../assets/logo.svg'
 import AvatarImg from '../assets/image-avatar.png'
 
 
 
-
 const Navbar = () => {
+  const navigate = useNavigate()
   return (
     <section className='flex justify-between w-full px-4 py-[18px] bg-semi-dark-blue'>
-      <div className='block w-[25px] h-[20px]' >
+      <div className='block w-[25px] h-[20px]' onClick={()=>navigate('/')} >
         <img src={LogoMovie} alt="logo-movies" className='w-full block' />
       </div>
       <div className='flex gap-6 items-center'>
