@@ -2,7 +2,7 @@ import axios, { AxiosError } from 'axios';
 import React, { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../store/hooks'
-import { updateMotionPictures } from '../features/motionPictures/motionPictureSlice';
+import { isLoadingMotionPictures, isSearchingMotionPictures, updateMotionPictures } from '../features/motionPictures/motionPictureSlice';
 
 interface SearchBarProps {
   category: "TV Series" | 'Movie' | "Bookmarked" | "All"
@@ -14,33 +14,45 @@ const SearchBar = ({ category = "All" }: SearchBarProps) => {
   const dispatch = useAppDispatch()
 
   const searchMotionPictures = async (query: string) => {
-    let urlRegister = `/api/v1/motion-picture?search=${query}`
-    if (category === "TV Series" || category === "Movie") {
-      urlRegister = urlRegister.concat(`&category=${category}`)
-    }
-    if (category === "Bookmarked") {
-      urlRegister = urlRegister.concat(`&bookmarks=true`)
-    }
-    dispatch(updateMotionPictures({
-      isLoading: true,
-    }))
-    try {
-      const res = await axios.get(urlRegister)
-      console.log("res from search movies: ", res);
-      dispatch(updateMotionPictures({
-        isLoading: false,
-        motionPictures: res.data.motionPictures,
-        numOfPages: res.data.numOfPages,
-        totalMotionPictures: res.data.totalMotionPictures
+    if (query.length < 1) {
+      dispatch(isSearchingMotionPictures({
+        isSearching: false
       }))
-    } catch (error) {
-      const err = error as AxiosError
-      console.log("error from search movies: ", err);
-      dispatch(updateMotionPictures({
-        isLoading: false,
+    }
+    if (query.length > 0) {
+      let urlSearch = `/api/v1/motion-picture?search=${query}`
+      if (category === "TV Series" || category === "Movie") {
+        urlSearch = urlSearch.concat(`&category=${category}`)
+      }
+      if (category === "Bookmarked") {
+        urlSearch = urlSearch.concat(`&bookmarks=true`)
+      }
+      dispatch(isSearchingMotionPictures({
+        isSearching: true
       }))
-      if (err.response?.status === 401) {
-        navigate('/sign-in')
+      dispatch(isLoadingMotionPictures({
+        isLoading: true
+      }))
+      try {
+        const res = await axios.get(urlSearch)
+        console.log("res from search movies: ", res);
+        dispatch(updateMotionPictures({
+          motionPictures: res.data.motionPictures,
+          numOfPages: res.data.numOfPages,
+          totalMotionPictures: res.data.totalMotionPictures
+        }))
+        dispatch(isLoadingMotionPictures({
+          isLoading: false
+        }))
+      } catch (error) {
+        const err = error as AxiosError
+        console.log("error from search movies: ", err);
+        dispatch(isLoadingMotionPictures({
+          isLoading: false
+        }))
+        if (err.response?.status === 401) {
+          navigate('/sign-in')
+        }
       }
     }
   }

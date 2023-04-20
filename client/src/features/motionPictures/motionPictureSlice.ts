@@ -29,13 +29,15 @@ export type MotionPicturesState = {
   totalMotionPictures: number
   numOfPages: number
   isLoading: boolean
+  isSearching: boolean
 }
 
 const initialState: MotionPicturesState = {
   motionPictures: [],
   totalMotionPictures: 0,
   numOfPages: 0,
-  isLoading: false
+  isLoading: false,
+  isSearching: false
 }
 
 export const motionPicturesSlice = createSlice({
@@ -43,14 +45,19 @@ export const motionPicturesSlice = createSlice({
   initialState,
   reducers: {
     updateMotionPictures: (state, { payload }) => {
-      state.motionPictures = payload.motionPictures || initialState.motionPictures
-      state.totalMotionPictures = payload.totalMotionPictures || initialState.totalMotionPictures
-      state.numOfPages = payload.numOfPages || initialState.numOfPages
-      state.isLoading = payload.isLoading
+      state.motionPictures = payload.motionPictures || state.motionPictures
+      state.totalMotionPictures = payload.totalMotionPictures || state.totalMotionPictures
+      state.numOfPages = payload.numOfPages || state.numOfPages
+    },
+    isLoadingMotionPictures: (state, { payload }) => {
+      state.isLoading  = payload.isLoading
+    },
+    isSearchingMotionPictures: (state, { payload }) => {
+      state.isSearching = payload.isSearching
     }
   }
 })
 
-export const {updateMotionPictures} = motionPicturesSlice.actions
+export const {updateMotionPictures, isSearchingMotionPictures, isLoadingMotionPictures} = motionPicturesSlice.actions
 
 export default motionPicturesSlice.reducer
