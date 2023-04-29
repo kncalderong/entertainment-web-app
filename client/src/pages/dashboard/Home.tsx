@@ -6,6 +6,8 @@ import getMotionPictures from '../../utils/getMotionPictures'
 import { isLoadingMotionPictures, isSearchingMotionPictures, updateMotionPictures } from '../../features/motionPictures/motionPictureSlice'
 import { useNavigate } from 'react-router-dom'
 import { MotionPictureType } from '../../features/motionPictures/motionPictureSlice'
+import MotionPictureGrid from '../../components/MotionPictureGrid'
+
 
 const Home = () => {
 
@@ -16,6 +18,7 @@ const Home = () => {
   const isSearching = useAppSelector((state) => state.motionPictures.isSearching)
   const motionPictures = useAppSelector((state) => state.motionPictures.motionPictures)
   const trendingMotionPictures = motionPictures.filter((motionPicture: MotionPictureType) => motionPicture.isTrending === true)
+  const bookmarkedMotionPictures: string[] = useAppSelector((state) => state.user.bookmarks)
 
   useEffect(() => {
     if (!isSearching) {
@@ -46,21 +49,31 @@ const Home = () => {
       })()
     }
   }, [isSearching])
-  return (
-    <div>
-      <SearchBar category="All" />
-      {isLoading ? <Loading /> : isSearching ? <section>
+
+  if (isLoading) {
+    return <Loading />
+  }
+
+  if (!isLoading && isSearching) {
+    return (
+      <section>
+        <SearchBar category="All" />
         Here the results from search
-      </section> : <section>
+      </section>
+    )
+  }
+  return (
+    <section className='px-4 pb-16 pt-6'>
+      <SearchBar category="All" />
+      <p className='text-white text-xl mb-6'>Recommended for you</p>
+      <div className='flex flex-wrap gap-4'>
         {motionPictures.map((motionPicture: MotionPictureType) => {
           return (
-            <article>
-              1
-            </article>
+            <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} />
           )
         })}
-      </section>}
-    </div>
+      </div>
+    </section>
   )
 }
 
