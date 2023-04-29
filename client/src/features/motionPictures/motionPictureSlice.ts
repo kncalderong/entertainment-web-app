@@ -2,13 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export type ThumbnailType = {
   trending?: {
-    small: String,
-    large: String
+    small: string,
+    large: string
   }
   regular: {
-    small: String,
-    medium: String,
-    large: String
+    small: string,
+    medium: string,
+    large: string
   }
 }
 
