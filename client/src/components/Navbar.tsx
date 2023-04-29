@@ -10,7 +10,7 @@ const Navbar = () => {
   const navigate = useNavigate()
   return (
     <section className='flex justify-between w-full px-4 py-[18px] bg-semi-dark-blue'>
-      <div className='block w-[25px] h-[20px]' onClick={()=>navigate('/')} >
+      <div className='block w-[25px] h-[20px]' onClick={() => navigate('/')} >
         <img src={LogoMovie} alt="logo-movies" className='w-full block' />
       </div>
       <div className='flex gap-6 items-center'>
@@ -19,10 +19,8 @@ const Navbar = () => {
           return (
             <NavLink to={path} key={id} >
               {(isActive) => {
-                return isActive.isActive ? (<div className='block w-[16px] h-[16px] cursor-pointer'>
-                  <img src={iconActive} alt={text} className='w-full block' />
-                </div>) : (<div className='block w-[16px] h-[16px] cursor-pointer'>
-                  <img src={icon} alt={text} className='w-full block' />
+                return (<div className='block w-[16px] h-[16px] cursor-pointer'>
+                  <img src={isActive.isActive ? iconActive : icon} alt={text} className='w-full block' />
                 </div>)
               }}
             </NavLink>
