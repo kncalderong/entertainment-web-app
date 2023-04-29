@@ -11,7 +11,8 @@ module.exports = {
       'semi-dark-blue': '#161D2F',
       'greyish-blue': '#5A698F',
       'grey':'#9ca3af',
-      'white': '#FFF'
+      'white': '#FFF',
+      'greyish-blue-opacity-50' : 'rgba(16, 20, 30, 1)'
     },
     extend: {
       fontFamily: {
