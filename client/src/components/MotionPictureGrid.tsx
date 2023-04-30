@@ -19,14 +19,14 @@ const MotionPictureGrid = ({motionPicture, isBookMarked} : MotionPictureGridProp
         </picture>
       </div>
       <div className='absolute top-[8px] right-[8px] bg-greyish-blue-opacity-50 p-[9px] rounded-full opacity-50 w-[32px] h-[32px] flex justify-center items-center'>
-        <img src={isBookMarked ? bookmarkedFullIcon : bookmarkedEmptyIcon} alt="" className='w-100' />
+        <img src={isBookMarked ? bookmarkedFullIcon : bookmarkedEmptyIcon} alt="bookmarkIcon" className='w-100' />
       </div>
-      <div className='flex gap-[6px] items-center mb-1'>
+      <div className='flex gap-[6px] items-center mb-1 text-grey'>
         <span className='text-[11px]'>{motionPicture.year}</span>
         <span className='w-[2px] h-[2px] rounded-full bg-white inline-block'></span>
         <div className='flex justify-center items-center gap-1'>
-          <div>
-            <img src={motionPicture.category === "TV Series" ? tvSerieMiniIcon : movieMiniIcon} alt="" />
+          <div className="block w-[10px]">
+            <img src={motionPicture.category === "TV Series" ? tvSerieMiniIcon : movieMiniIcon} alt={motionPicture.category} className='w-full' />
           </div>
           <span className='text-[11px]'>{motionPicture.category}</span>
         </div>
