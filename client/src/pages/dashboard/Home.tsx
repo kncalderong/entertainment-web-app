@@ -7,6 +7,7 @@ import { isLoadingMotionPictures, isSearchingMotionPictures, updateMotionPicture
 import { useNavigate } from 'react-router-dom'
 import { MotionPictureType } from '../../features/motionPictures/motionPictureSlice'
 import MotionPictureGrid from '../../components/MotionPictureGrid'
+import MotionPictureSlide from '../../components/MotionPictureSlide'
 
 
 const Home = () => {
@@ -65,6 +66,14 @@ const Home = () => {
   return (
     <section className='px-4 pb-16 pt-6'>
       <SearchBar category="All" />
+      <p className='text-white text-xl mb-6'>Trending</p>
+      <div className='w-[360px] mr-[-15px] flex relative overflow-auto gap-4 mb-6'>
+        {trendingMotionPictures.map((motionPicture: MotionPictureType) => {
+          return (
+            <MotionPictureSlide isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} key={motionPicture._id} motionPicture={motionPicture} />
+          )
+        })}
+      </div>
       <p className='text-white text-xl mb-6'>Recommended for you</p>
       <div className='flex flex-wrap gap-4'>
         {motionPictures.map((motionPicture: MotionPictureType) => {
