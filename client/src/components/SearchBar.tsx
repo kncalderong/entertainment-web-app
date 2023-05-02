@@ -3,6 +3,7 @@ import React, { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../store/hooks'
 import { isLoadingMotionPictures, isSearchingMotionPictures, updateMotionPictures, updateSearchQuery } from '../features/motionPictures/motionPictureSlice';
+import SearchIcon from "../assets/icon-search.svg"
 
 interface SearchBarProps {
   category: "TV Series" | 'Movie' | "Bookmarked" | "All"
@@ -72,8 +73,13 @@ const SearchBar = ({ category = "All" }: SearchBarProps) => {
   }
   const optimizedDebounce = useMemo(() => debounce(), []);
   return (
-    <section>
-      <input type="search" value={localSearch} onChange={optimizedDebounce} />
+    <section className='w-full px-4 mt-6'>
+      <div className='w-full flex items-center justify-center gap-4'>
+        <div className='block w-6 h-6'>
+          <img src={SearchIcon} alt="searchIcon" className='w-full'/>
+        </div>
+        <input type="search" value={localSearch} onChange={optimizedDebounce} className='min-h-[24px] bg-dark-blue text-white flex-grow focus-visible:bg-dark-blue focus-visible:border-b-[1px] focus-visible:border-b-greyish-blue caret-red focus-visible:outline-none cursor-pointer text-base' />
+      </div>
     </section>
   )
 }
