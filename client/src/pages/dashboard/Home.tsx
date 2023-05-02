@@ -18,6 +18,7 @@ const Home = () => {
   const isLoading = useAppSelector((state) => state.motionPictures.isLoading)
   const isSearching = useAppSelector((state) => state.motionPictures.isSearching)
   const motionPictures = useAppSelector((state) => state.motionPictures.motionPictures)
+  const searchQuery = useAppSelector((state) => state.motionPictures.searchQuery)
   const trendingMotionPictures = motionPictures.filter((motionPicture: MotionPictureType) => motionPicture.isTrending === true)
   const bookmarkedMotionPictures: string[] = useAppSelector((state) => state.user.bookmarks)
 
@@ -57,15 +58,20 @@ const Home = () => {
 
   if (!isLoading && isSearching) {
     return (
-      <section>
-        <SearchBar category="All" />
-        Here the results from search
+      <section className='px-4 pb-16 pt-6 w-full'>
+        <p className='text-white text-xl mb-6'>{`Found ${motionPictures.length} results for '${searchQuery}'`}</p>
+        <div className='flex flex-wrap gap-4'>
+          {motionPictures.map((motionPicture: MotionPictureType) => {
+            return (
+              <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} />
+            )
+          })}
+        </div>
       </section>
     )
   }
   return (
     <section className='px-4 pb-16 pt-6'>
-      <SearchBar category="All" />
       <p className='text-white text-xl mb-6'>Trending</p>
       <div className='w-[360px] mr-[-15px] flex relative overflow-auto gap-4 mb-6'>
         {trendingMotionPictures.map((motionPicture: MotionPictureType) => {
