@@ -1,19 +1,16 @@
 import axios, { AxiosError } from 'axios';
 import React, { useMemo, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../store/hooks'
 import { isLoadingMotionPictures, isSearchingMotionPictures, updateMotionPictures, updateSearchQuery } from '../features/motionPictures/motionPictureSlice';
 import SearchIcon from "../assets/icon-search.svg"
 
-interface SearchBarProps {
-  category: "TV Series" | 'Movie' | "Bookmarked" | "All"
-}
-
-const SearchBar = ({ category = "All" }: SearchBarProps) => {
+const SearchBar = () => {
   const [localSearch, setLocalSearch] = useState<string>('');
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-
+  const currentPath = useLocation()
+  
   const searchMotionPictures = async (query: string) => {
     if (query.length < 1) {
       dispatch(isSearchingMotionPictures({
@@ -22,10 +19,13 @@ const SearchBar = ({ category = "All" }: SearchBarProps) => {
     }
     if (query.length > 0) {
       let urlSearch = `/api/v1/motion-picture?search=${query}`
-      if (category === "TV Series" || category === "Movie") {
-        urlSearch = urlSearch.concat(`&category=${category}`)
+      if (currentPath.pathname.slice(1) === "series") {
+        urlSearch = urlSearch.concat(`&category=TV Series`)
       }
-      if (category === "Bookmarked") {
+      if (currentPath.pathname.slice(1) === "movies") {
+        urlSearch = urlSearch.concat(`&category=Movie`)
+      }
+      if (currentPath.pathname.slice(1) === "bookmarked") {
         urlSearch = urlSearch.concat(`&bookmarks=true`)
       }
       dispatch(isSearchingMotionPictures({

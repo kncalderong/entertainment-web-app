@@ -7,7 +7,7 @@ const SharedLayout = () => {
   return (
     <main className='w-full h-full min-h-screen flex flex-col bg-dark-blue items-center'>
       <Navbar />
-      <SearchBar category="All" />
+      <SearchBar />
       <Outlet/>
     </main>
   )
