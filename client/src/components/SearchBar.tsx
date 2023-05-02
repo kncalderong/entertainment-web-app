@@ -2,7 +2,7 @@ import axios, { AxiosError } from 'axios';
 import React, { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../store/hooks'
-import { isLoadingMotionPictures, isSearchingMotionPictures, updateMotionPictures } from '../features/motionPictures/motionPictureSlice';
+import { isLoadingMotionPictures, isSearchingMotionPictures, updateMotionPictures, updateSearchQuery } from '../features/motionPictures/motionPictureSlice';
 
 interface SearchBarProps {
   category: "TV Series" | 'Movie' | "Bookmarked" | "All"
@@ -29,6 +29,9 @@ const SearchBar = ({ category = "All" }: SearchBarProps) => {
       }
       dispatch(isSearchingMotionPictures({
         isSearching: true
+      }))
+      dispatch(updateSearchQuery({
+        searchQuery: query
       }))
       dispatch(isLoadingMotionPictures({
         isLoading: true
