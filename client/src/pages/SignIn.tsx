@@ -116,10 +116,10 @@ const SignIn = () => {
 
   return (
     <main className='w-full h-screen flex flex-col bg-dark-blue items-center'>
-      <div className='block w-[32px] h-[26px] mt-12 mb-[59px]' >
+      <div className='block w-[32px] h-[26px] mt-12 mb-[59px] md:mt-[80px] md:mb-[72px]' >
         <img src={LogoMovie} alt="logo-movies" className='w-full block' />
       </div>
-      <form className='w-[90%] max-w-[327px] bg-semi-dark-blue p-6 rounded-[10px]' onSubmit={submitHandle} >
+      <form className='w-[90%] max-w-[327px] bg-semi-dark-blue p-6 rounded-[10px] md:max-w-[400px] md:p-8' onSubmit={submitHandle} >
         <h3 className='text-white text-[32px] mb-10'>{signInOption === "login" ? 'Login' : 'Sign Up'}</h3>
         <div className='flex flex-col relative' >
           <input type="email" name='email' placeholder='Email address' className={`bg-semi-dark-blue border-b-[1px] border-greyish-blue text-white px-4 pb-4 pt-0 focus-visible:outline-none cursor-pointer caret-red ${emailAlert.showAlert ? 'focus-visible:border-red' : 'focus-visible:border-white'} mb-6 focus-visible:bg-semi-dark-blue `} ref={emailRef} onChange={() => {

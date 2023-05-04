@@ -40,7 +40,6 @@ const SearchBar = () => {
       }))
       try {
         const res = await axios.get(urlSearch)
-        console.log("res from search movies: ", res);
         dispatch(updateMotionPictures({
           motionPictures: res.data.motionPictures,
           numOfPages: res.data.numOfPages,
@@ -74,12 +73,12 @@ const SearchBar = () => {
   }
   const optimizedDebounce = useMemo(() => debounce(), [currentPath]);
   return (
-    <section className='w-full px-4 mt-6'>
-      <div className='w-full flex items-center justify-center gap-4'>
-        <div className='block w-6 h-6'>
+    <section className='w-full px-4 mt-6 md:px-0 md:mt-8'>
+      <div className='w-full flex items-center justify-center gap-4 md:gap-6'>
+        <div className='block w-6 h-6 md:w-8 md:h-8'>
           <img src={SearchIcon} alt="searchIcon" className='w-full'/>
         </div>
-        <input type="search" value={localSearch} onChange={optimizedDebounce} className='min-h-[24px] bg-dark-blue text-white flex-grow focus-visible:bg-dark-blue focus-visible:border-b-[1px] focus-visible:border-b-greyish-blue caret-red focus-visible:outline-none cursor-pointer text-base' placeholder={placeholderByURl} />
+        <input type="search" value={localSearch} onChange={optimizedDebounce} className='min-h-[24px] bg-dark-blue text-white flex-grow focus-visible:bg-dark-blue focus-visible:border-b-[1px] focus-visible:border-b-greyish-blue caret-red focus-visible:outline-none cursor-pointer text-base md:text-2xl' placeholder={placeholderByURl} />
       </div>
     </section>
   )

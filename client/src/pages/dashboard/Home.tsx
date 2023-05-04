@@ -82,16 +82,16 @@ const Home = () => {
     )
   }
   return (
-    <section className='px-4 pb-16 pt-6'>
-      <p className='text-white text-xl mb-6'>Trending</p>
-      <div className='w-[360px] mr-[-15px] flex relative overflow-auto gap-4 mb-6'>
+    <section className='px-4 pb-16 pt-6 md:pt-8 md:px-0 md:pb-14'>
+      <p className='text-white text-xl mb-6 md:text-3xl'>Trending</p>
+      <div className='w-[calc(100vw-30px)] mr-[-15px] flex relative overflow-auto gap-4 mb-6 md:w-[calc(100vw-48px)]'>
         {trendingMotionPictures.map((motionPicture: MotionPictureType) => {
           return (
             <MotionPictureSlide isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} key={motionPicture._id} motionPicture={motionPicture} bookmarkHandler={updateBookmarksHandler} />
           )
         })}
       </div>
-      <p className='text-white text-xl mb-6'>Recommended for you</p>
+      <p className='text-white text-xl mb-6 md:text-3xl'>Recommended for you</p>
       <div className='flex flex-wrap gap-4'>
         {motionPictures.map((motionPicture: MotionPictureType) => {
           return (
