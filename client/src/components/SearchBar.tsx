@@ -10,6 +10,7 @@ const SearchBar = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const currentPath = useLocation()
+  const placeholderByURl = currentPath.pathname.slice(1) === "series" ? 'Search for TV series' : currentPath.pathname.slice(1) === "movies" ? "Search for movies" : currentPath.pathname.slice(1) === "bookmarked" ? "Search for bookmarked shows" : "Search for movies or TV series"
   
   const searchMotionPictures = async (query: string) => {
     if (query.length < 1) {
@@ -71,14 +72,14 @@ const SearchBar = () => {
       }, 500)
     }
   }
-  const optimizedDebounce = useMemo(() => debounce(), []);
+  const optimizedDebounce = useMemo(() => debounce(), [currentPath]);
   return (
     <section className='w-full px-4 mt-6'>
       <div className='w-full flex items-center justify-center gap-4'>
         <div className='block w-6 h-6'>
           <img src={SearchIcon} alt="searchIcon" className='w-full'/>
         </div>
-        <input type="search" value={localSearch} onChange={optimizedDebounce} className='min-h-[24px] bg-dark-blue text-white flex-grow focus-visible:bg-dark-blue focus-visible:border-b-[1px] focus-visible:border-b-greyish-blue caret-red focus-visible:outline-none cursor-pointer text-base' />
+        <input type="search" value={localSearch} onChange={optimizedDebounce} className='min-h-[24px] bg-dark-blue text-white flex-grow focus-visible:bg-dark-blue focus-visible:border-b-[1px] focus-visible:border-b-greyish-blue caret-red focus-visible:outline-none cursor-pointer text-base' placeholder={placeholderByURl} />
       </div>
     </section>
   )
