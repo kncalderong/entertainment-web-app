@@ -8,9 +8,10 @@ import tvSerieMiniIcon from "../assets/icon-category-tv.svg"
 interface MotionPictureGridProps {
   motionPicture: MotionPictureType
   isBookMarked: boolean
+  bookmarkHandler: (motionPictureId: string) => void
 }
 
-const MotionPictureGrid = ({motionPicture, isBookMarked} : MotionPictureGridProps) => {
+const MotionPictureGrid = ({motionPicture, isBookMarked, bookmarkHandler} : MotionPictureGridProps) => {
   return (
     <article className={`w-[calc(50%-8px)] text-white relative` } >
       <div className=' '>
@@ -18,7 +19,7 @@ const MotionPictureGrid = ({motionPicture, isBookMarked} : MotionPictureGridProp
           <img src={motionPicture.thumbnail.regular.small} alt={motionPicture.title} className='w-100 rounded-lg' />
         </picture>
       </div>
-      <div className='absolute top-[8px] right-[8px] bg-greyish-blue-opacity-50 p-[9px] rounded-full opacity-50 w-[32px] h-[32px] flex justify-center items-center'>
+      <div className='absolute top-[8px] right-[8px] bg-greyish-blue-opacity-50 p-[9px] rounded-full opacity-50 w-[32px] h-[32px] flex justify-center items-center' onClick={()=>bookmarkHandler(motionPicture._id)}>
         <img src={isBookMarked ? bookmarkedFullIcon : bookmarkedEmptyIcon} alt="bookmarkIcon" className='w-100' />
       </div>
       <div className='flex gap-[6px] items-center mb-1 text-grey'>

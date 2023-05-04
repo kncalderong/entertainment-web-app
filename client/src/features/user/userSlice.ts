@@ -20,10 +20,13 @@ export const userSlice = createSlice({
       state.email = payload.email
       state.userId = payload._id
       state.bookmarks = payload.bookmarks
+    },
+    updateBookmarksSlice: (state, { payload }) => {
+      state.bookmarks = payload.bookmarks
     }
   }
 })
 
-export const {addUser} = userSlice.actions
+export const {addUser, updateBookmarksSlice} = userSlice.actions
 
 export default userSlice.reducer

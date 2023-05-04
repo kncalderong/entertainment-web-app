@@ -8,11 +8,12 @@ import tvSerieMiniIcon from "../assets/icon-category-tv.svg"
 interface MotionPictureSlideProps {
   motionPicture: MotionPictureType
   isBookMarked: boolean
+  bookmarkHandler: (motionPictureId: string) => void
 }
-const MotionPictureSlide = ({motionPicture, isBookMarked} : MotionPictureSlideProps) => {
+const MotionPictureSlide = ({motionPicture, isBookMarked, bookmarkHandler} : MotionPictureSlideProps) => {
   return (
     <article className={`text-white relative min-w-[calc(100%-120px)] h-[140px] rounded-lg bg-cover flex flex-col justify-end p-4` } style={{backgroundImage: `linear-gradient(0deg, rgba(16, 20, 30, 0.2), rgba(16, 20, 30, 0.2)), url(${motionPicture.thumbnail.regular.small})`}}>
-      <div className='absolute top-[8px] right-[8px] bg-greyish-blue-opacity-50 p-[9px] rounded-full opacity-50 w-[32px] h-[32px] flex justify-center items-center'>
+      <div className='absolute top-[8px] right-[8px] bg-greyish-blue-opacity-50 p-[9px] rounded-full opacity-50 w-[32px] h-[32px] flex justify-center items-center' onClick={()=>bookmarkHandler(motionPicture._id)}>
         <img src={isBookMarked ? bookmarkedFullIcon : bookmarkedEmptyIcon} alt="bookmarkIcon" className='w-100' />
       </div>
       <div className='flex gap-[6px] items-center mb-1 text-grey'>
