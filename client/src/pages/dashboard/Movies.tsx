@@ -6,7 +6,6 @@ import { isLoadingMotionPictures, isSearchingMotionPictures, updateMotionPicture
 import { useNavigate } from 'react-router-dom'
 import { MotionPictureType } from '../../features/motionPictures/motionPictureSlice'
 import MotionPictureGrid from '../../components/MotionPictureGrid'
-import MotionPictureSlide from '../../components/MotionPictureSlide'
 
 const Movies = () => {
   const dispatch = useAppDispatch()
