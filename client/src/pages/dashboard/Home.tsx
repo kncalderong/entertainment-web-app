@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom'
 import { MotionPictureType } from '../../features/motionPictures/motionPictureSlice'
 import MotionPictureGrid from '../../components/MotionPictureGrid'
 import MotionPictureSlide from '../../components/MotionPictureSlide'
+import updateBookmarks from '../../utils/updateBookmarks'
+import { updateBookmarksSlice } from '../../features/user/userSlice'
 
 
 const Home = () => {
@@ -51,6 +53,15 @@ const Home = () => {
       })()
     }
   }, [isSearching])
+  
+  const updateBookmarksHandler = async (motionPictureId: string) => {
+    const newMotionPictures = await updateBookmarks(motionPictureId, bookmarkedMotionPictures)
+    if (newMotionPictures) {
+      dispatch(updateBookmarksSlice({
+        bookmarks: newMotionPictures
+      }))
+    }
+  }
 
   if (isLoading) {
     return <Loading />
@@ -63,7 +74,7 @@ const Home = () => {
         <div className='flex flex-wrap gap-4'>
           {motionPictures.map((motionPicture: MotionPictureType) => {
             return (
-              <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} />
+              <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} bookmarkHandler={updateBookmarksHandler} />
             )
           })}
         </div>
@@ -76,7 +87,7 @@ const Home = () => {
       <div className='w-[360px] mr-[-15px] flex relative overflow-auto gap-4 mb-6'>
         {trendingMotionPictures.map((motionPicture: MotionPictureType) => {
           return (
-            <MotionPictureSlide isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} key={motionPicture._id} motionPicture={motionPicture} />
+            <MotionPictureSlide isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} key={motionPicture._id} motionPicture={motionPicture} bookmarkHandler={updateBookmarksHandler} />
           )
         })}
       </div>
@@ -84,7 +95,7 @@ const Home = () => {
       <div className='flex flex-wrap gap-4'>
         {motionPictures.map((motionPicture: MotionPictureType) => {
           return (
-            <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} />
+            <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} bookmarkHandler={updateBookmarksHandler} />
           )
         })}
       </div>

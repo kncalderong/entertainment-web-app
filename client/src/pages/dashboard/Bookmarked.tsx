@@ -6,6 +6,8 @@ import { isLoadingMotionPictures, isSearchingMotionPictures, updateMotionPicture
 import { useNavigate } from 'react-router-dom'
 import { MotionPictureType } from '../../features/motionPictures/motionPictureSlice'
 import MotionPictureGrid from '../../components/MotionPictureGrid'
+import updateBookmarks from '../../utils/updateBookmarks'
+import { updateBookmarksSlice } from '../../features/user/userSlice'
 
 const Bookmarked = () => {
   const dispatch = useAppDispatch()
@@ -45,7 +47,16 @@ const Bookmarked = () => {
         }
       })()
     }
-  }, [isSearching])
+  }, [isSearching, bookmarkedMotionPictures])
+  
+  const updateBookmarksHandler = async (motionPictureId: string) => {
+    const newMotionPictures = await updateBookmarks(motionPictureId, bookmarkedMotionPictures)
+    if (newMotionPictures) {
+      dispatch(updateBookmarksSlice({
+        bookmarks: newMotionPictures
+      }))
+    }
+  }
 
   if (isLoading) {
     return <Loading />
@@ -58,7 +69,7 @@ const Bookmarked = () => {
         <div className='flex flex-wrap gap-4'>
           {motionPictures.map((motionPicture: MotionPictureType) => {
             return (
-              <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} />
+              <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} bookmarkHandler={updateBookmarksHandler}/>
             )
           })}
         </div>
@@ -71,7 +82,7 @@ const Bookmarked = () => {
       <div className='flex flex-wrap gap-4'>
         {motionPictures.filter((motionPicture: MotionPictureType) => motionPicture.category === 'Movie').map((motionPicture: MotionPictureType) => {
           return (
-            <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} />
+            <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} bookmarkHandler={updateBookmarksHandler} />
           )
         })}
       </div>
@@ -79,7 +90,7 @@ const Bookmarked = () => {
       <div className='flex flex-wrap gap-4'>
         {motionPictures.filter((motionPicture: MotionPictureType) => motionPicture.category === 'TV Series').map((motionPicture: MotionPictureType) => {
           return (
-            <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} />
+            <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} bookmarkHandler={updateBookmarksHandler} />
           )
         })}
       </div>
