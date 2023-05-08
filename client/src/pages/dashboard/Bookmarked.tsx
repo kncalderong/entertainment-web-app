@@ -66,7 +66,7 @@ const Bookmarked = () => {
     return (
       <section className='px-4 pb-16 pt-6 w-full'>
         <p className='text-white text-xl mb-6'>{`Found ${motionPictures.length} results for '${searchQuery}'`}</p>
-        <div className='flex flex-wrap gap-4'>
+        <div className='flex flex-wrap gap-4  md:gap-y-[24px] md:gap-x-[30px]'>
           {motionPictures.map((motionPicture: MotionPictureType) => {
             return (
               <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} bookmarkHandler={updateBookmarksHandler}/>
@@ -79,7 +79,7 @@ const Bookmarked = () => {
   return (
     <section className='px-4 pb-16 pt-6'>
       <p className='text-white text-xl mb-6'>Bookmarked Movies</p>
-      <div className='flex flex-wrap gap-4'>
+      <div className='flex flex-wrap gap-4  md:gap-y-[24px] md:gap-x-[30px]'>
         {motionPictures.filter((motionPicture: MotionPictureType) => motionPicture.category === 'Movie').map((motionPicture: MotionPictureType) => {
           return (
             <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} bookmarkHandler={updateBookmarksHandler} />
@@ -87,7 +87,7 @@ const Bookmarked = () => {
         })}
       </div>
       <p className='text-white text-xl mb-6 mt-6'>Bookmarked TV Series</p>
-      <div className='flex flex-wrap gap-4'>
+      <div className='flex flex-wrap gap-4  md:gap-y-[24px] md:gap-x-[30px]'>
         {motionPictures.filter((motionPicture: MotionPictureType) => motionPicture.category === 'TV Series').map((motionPicture: MotionPictureType) => {
           return (
             <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} bookmarkHandler={updateBookmarksHandler} />

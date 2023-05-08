@@ -67,7 +67,7 @@ const Movies = () => {
     return (
       <section className='px-4 pb-16 pt-6 w-full'>
         <p className='text-white text-xl mb-6'>{`Found ${motionPictures.length} results for '${searchQuery}'`}</p>
-        <div className='flex flex-wrap gap-4'>
+        <div className='flex flex-wrap gap-4  md:gap-y-[24px] md:gap-x-[30px]'>
           {motionPictures.map((motionPicture: MotionPictureType) => {
             return (
               <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} bookmarkHandler={updateBookmarksHandler} />
@@ -80,7 +80,7 @@ const Movies = () => {
   return (
     <section className='px-4 pb-16 pt-6'>
       <p className='text-white text-xl mb-6'>Movies</p>
-      <div className='flex flex-wrap gap-4'>
+      <div className='flex flex-wrap gap-4  md:gap-y-[24px] md:gap-x-[30px]'>
         {motionPictures.map((motionPicture: MotionPictureType) => {
           return (
             <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)}  bookmarkHandler={updateBookmarksHandler} />

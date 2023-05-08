@@ -71,7 +71,7 @@ const Home = () => {
     return (
       <section className='px-4 pb-16 pt-6 w-full'>
         <p className='text-white text-xl mb-6'>{`Found ${motionPictures.length} results for '${searchQuery}'`}</p>
-        <div className='flex flex-wrap gap-4'>
+        <div className='flex flex-wrap gap-4 md:gap-y-[24px] md:gap-x-[30px]'>
           {motionPictures.map((motionPicture: MotionPictureType) => {
             return (
               <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} bookmarkHandler={updateBookmarksHandler} />
@@ -84,7 +84,7 @@ const Home = () => {
   return (
     <section className='px-4 pb-16 pt-6 md:pt-8 md:px-0 md:pb-14'>
       <p className='text-white text-xl mb-6 md:text-3xl'>Trending</p>
-      <div className='w-[calc(100vw-30px)] mr-[-15px] flex relative overflow-auto gap-4 mb-6 md:w-[calc(100vw-48px)]'>
+      <div className='w-[calc(100vw-30px)] mr-[-15px] flex relative overflow-auto gap-4 mb-6 md:w-[calc(100vw-48px)] md:mb-10'>
         {trendingMotionPictures.map((motionPicture: MotionPictureType) => {
           return (
             <MotionPictureSlide isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} key={motionPicture._id} motionPicture={motionPicture} bookmarkHandler={updateBookmarksHandler} />
@@ -92,7 +92,7 @@ const Home = () => {
         })}
       </div>
       <p className='text-white text-xl mb-6 md:text-3xl'>Recommended for you</p>
-      <div className='flex flex-wrap gap-4'>
+      <div className='flex flex-wrap gap-4  md:gap-y-[24px] md:gap-x-[30px]'>
         {motionPictures.map((motionPicture: MotionPictureType) => {
           return (
             <MotionPictureGrid motionPicture={motionPicture} key={motionPicture._id} isBookMarked={bookmarkedMotionPictures.includes(motionPicture._id)} bookmarkHandler={updateBookmarksHandler} />
