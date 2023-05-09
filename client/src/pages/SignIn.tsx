@@ -156,7 +156,7 @@ const SignIn = () => {
             {repeatPasswordAlert.showAlert && (<span className='absolute text-[13px] text-red right-0 top-[1px]' >{repeatPasswordAlert.alertMessage}</span>)}
           </div>
         )}
-        <button className='w-full py-[14px] text-white rounded-md bg-red cursor-pointer mb-6' type="submit">{signInOption === 'login' ? 'Login to your account' : 'Create an account'}</button>
+        <button className='w-full py-[14px] text-white rounded-md bg-red cursor-pointer mb-6 lg:hover:bg-white lg:hover:text-dark-blue' type="submit">{signInOption === 'login' ? 'Login to your account' : 'Create an account'}</button>
         <div className='flex gap-[9px] justify-center items-center  mb-2'>
           <p className='text-white ' >{signInOption === 'login' ? "Don't have an account?" : "Already have an account?"}</p>
           <span className='cursor-pointer text-red' onClick={() => setSignInOption((prevValue) => {
