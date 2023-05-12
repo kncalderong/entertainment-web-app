@@ -9,7 +9,7 @@ import AvatarImg from '../assets/image-avatar.png'
 const Navbar = () => {
   const navigate = useNavigate()
   return (
-    <section className='flex justify-between w-full px-4 py-[18px] bg-semi-dark-blue md:rounded-[10px] md:p-6 lg:flex-col lg:rounded-[20px] lg:h-[100vh] lg:p-8 lg:max-w-[96px]'>
+    <section className='flex justify-between w-full px-4 py-[18px] bg-semi-dark-blue md:rounded-[10px] md:p-6 lg:flex-col lg:rounded-[20px] lg:h-[calc(100vh-60px)] lg:p-8 lg:max-w-[96px]'>
       <div className='block w-[25px] h-[20px] md:w-[32px] md:h-[25px]' onClick={() => navigate('/')} >
         <img src={LogoMovie} alt="logo-movies" className='w-full block' />
       </div>

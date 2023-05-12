@@ -13,13 +13,13 @@ interface MotionPictureGridProps {
 
 const MotionPictureGrid = ({motionPicture, isBookMarked, bookmarkHandler} : MotionPictureGridProps) => {
   return (
-    <article className={`w-[calc(50%-8px)] text-white relative md:w-[calc(((1/3)*100%)-20px)]` } >
+    <article className={`w-[calc(50%-8px)] text-white relative md:w-[calc(((1/3)*100%)-20px)] lg:w-[calc(((1/4)*100%)-30px)]` } >
       <div className=' '>
         <picture className='block mb-2'>
           <img src={motionPicture.thumbnail.regular.small} alt={motionPicture.title} className='w-100 rounded-lg' />
         </picture>
       </div>
-      <div className='absolute top-[8px] right-[8px] bg-greyish-blue-opacity-50 p-[9px] rounded-full opacity-50 w-[32px] h-[32px] flex justify-center items-center' onClick={()=>bookmarkHandler(motionPicture._id)}>
+      <div className='absolute top-[8px] right-[8px] bg-greyish-blue-opacity-50 p-[9px] rounded-full opacity-50 w-[32px] h-[32px] flex justify-center items-center cursor-pointer' onClick={()=>bookmarkHandler(motionPicture._id)}>
         <img src={isBookMarked ? bookmarkedFullIcon : bookmarkedEmptyIcon} alt="bookmarkIcon" className='w-100' />
       </div>
       <div className='flex gap-[6px] items-center mb-1 text-grey md:gap-[8px]'>

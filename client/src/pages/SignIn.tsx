@@ -83,9 +83,7 @@ const SignIn = () => {
         dispatch(
           addUser({...user})
         )
-        navigate('/')
-        console.log("user: ", user);   
-                
+        navigate('/')        
       } catch (error) {
         const err = error as AxiosError
         if (err.response?.status === 401) {
@@ -102,7 +100,6 @@ const SignIn = () => {
           addUser({...user})
         )
         navigate('/')
-        console.log("user: ", user); 
       } catch (error) {
         const err = error as AxiosError
         const errMsg = err.response!.data as ServerErrorResponse
