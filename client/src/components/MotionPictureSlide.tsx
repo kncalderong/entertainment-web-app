@@ -20,8 +20,8 @@ const MotionPictureSlide = ({ motionPicture, isBookMarked, bookmarkHandler }: Mo
   }
 
   return (
-    <article className={`text-white relative min-w-[calc(100%-120px)] h-[140px] rounded-lg bg-cover flex flex-col justify-end p-4 md:min-w-[calc(100%-250px)] md:h-[230px]` } style={style}>
-      <div className='absolute top-[8px] right-[8px] bg-greyish-blue-opacity-50 p-[9px] rounded-full opacity-50 w-[32px] h-[32px] flex justify-center items-center' onClick={()=>bookmarkHandler(motionPicture._id)}>
+    <article className={`text-white relative min-w-[calc(100%-120px)] h-[140px] rounded-lg bg-cover flex flex-col justify-end p-4 md:min-w-[calc(100%-250px)] md:h-[230px] lg:min-w-[470px]` } style={style}>
+      <div className='absolute top-[8px] right-[8px] bg-greyish-blue-opacity-50 p-[9px] rounded-full opacity-50 w-[32px] h-[32px] flex justify-center items-center cursor-pointer' onClick={()=>bookmarkHandler(motionPicture._id)}>
         <img src={isBookMarked ? bookmarkedFullIcon : bookmarkedEmptyIcon} alt="bookmarkIcon" className='w-100' />
       </div>
       <div className='flex gap-[6px] items-center mb-1 text-grey '>
