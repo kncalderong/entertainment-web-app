@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MotionPictureType } from '../features/motionPictures/motionPictureSlice'
 import bookmarkedEmptyIcon from "../assets/icon-bookmark-empty.svg"
 import bookmarkedFullIcon from "../assets/icon-bookmark-full.svg"
 import movieMiniIcon from "../assets/icon-category-movie.svg"
 import tvSerieMiniIcon from "../assets/icon-category-tv.svg"
+import { useMediaQuery } from '../hooks/useMediaQuery'
+import IconPlay from '../assets/icon-play.svg'
 
 interface MotionPictureGridProps {
   motionPicture: MotionPictureType
@@ -11,15 +13,40 @@ interface MotionPictureGridProps {
   bookmarkHandler: (motionPictureId: string) => void
 }
 
-const MotionPictureGrid = ({motionPicture, isBookMarked, bookmarkHandler} : MotionPictureGridProps) => {
+
+const MotionPictureGrid = ({ motionPicture, isBookMarked, bookmarkHandler }: MotionPictureGridProps) => {
+
+  const [isHover, setIsHover] = useState<boolean>(false)
+  const isTablet = useMediaQuery('(min-width: 768px)')
+  const isDesktop = useMediaQuery('(min-width: 1024px)')
+
+  const style = {
+    backgroundImage: `url(${isDesktop ? motionPicture.thumbnail.regular.large : isTablet ? motionPicture.thumbnail.regular.medium : motionPicture.thumbnail.regular.small})`
+  }
+
   return (
-    <article className={`w-[calc(50%-8px)] text-white relative md:w-[calc(((1/3)*100%)-20px)] lg:w-[calc(((1/4)*100%)-30px)]` } >
-      <div className=' '>
-        <picture className='block mb-2'>
-          <img src={motionPicture.thumbnail.regular.small} alt={motionPicture.title} className='w-100 rounded-lg' />
-        </picture>
+    <article className={`w-[calc(50%-8px)] cursor-pointer text-white relative md:w-[calc(((1/3)*100%)-20px)] lg:w-[calc(((1/4)*100%)-30px)]`} >
+      <div className='w-100 rounded-lg mb-2 h-[110px] bg-cover md:h-[140px] lg:h-[174px]' style={style} onMouseOver={() => { setIsHover(true) }} onMouseLeave={() => { setIsHover(false) }}>
+        {(isHover && isDesktop) ? (
+          <div className="w-full h-full flex  justify-center items-center" style={{
+            backgroundImage: 'linear-gradient(0deg, rgba(16, 20, 30, 0.2), rgba(16, 20, 30, 0.2))'
+          }} >
+            <div className='flex gap-[20px] p-[9px] rounded-[29px] h-12 items-center w-[117px] justify-start' style={{
+            backgroundImage: 'linear-gradient(0deg, rgba(190, 194, 204, 0.3), rgba(190, 194, 204, 0.3))'
+          }}>
+              <div className='block w-[30px] h-[30px]'>
+                <img src={IconPlay} alt="iconPlay" className='w-full' />
+              </div>
+              <p>Play</p>
+            </div>
+          </div>
+        ) : (!isDesktop) ? (
+          <div className="w-full h-full flex  justify-center items-center" style={{
+            backgroundImage: 'linear-gradient(0deg, rgba(16, 20, 30, 0.2), rgba(16, 20, 30, 0.2))'
+          }} ></div>
+        ) : null}
       </div>
-      <div className='absolute top-[8px] right-[8px] bg-greyish-blue-opacity-50 p-[9px] rounded-full opacity-50 w-[32px] h-[32px] flex justify-center items-center cursor-pointer' onClick={()=>bookmarkHandler(motionPicture._id)}>
+      <div className='absolute top-[8px] right-[8px] bg-greyish-blue-opacity-50 p-[9px] rounded-full opacity-50 w-[32px] h-[32px] flex justify-center items-center cursor-pointer' onClick={() => bookmarkHandler(motionPicture._id)}>
         <img src={isBookMarked ? bookmarkedFullIcon : bookmarkedEmptyIcon} alt="bookmarkIcon" className='w-100' />
       </div>
       <div className='flex gap-[6px] items-center mb-1 text-grey md:gap-[8px]'>
