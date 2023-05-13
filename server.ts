@@ -6,6 +6,10 @@ dotenv.config();
 //to handle errors throught middleware
 import 'express-async-errors'
 
+//to secure some general vulnerabilities that could have a backend
+import helmet from 'helmet';
+import mongoSanitize from 'express-mongo-sanitize';
+
 // db and authenticateUser
 import connectDB from './db/connect';
 
@@ -22,6 +26,10 @@ import notFoundMiddleware from './middleware/not-found';
 
 app.use(express.json()); //to allow reading body in json format
 app.use(cookieParser())
+
+app.use(express.json());
+app.use(helmet());
+app.use(mongoSanitize());
 
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/motion-picture', motionPictureRouter)
