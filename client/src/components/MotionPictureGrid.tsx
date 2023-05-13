@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { MotionPictureType } from '../features/motionPictures/motionPictureSlice'
 import bookmarkedEmptyIcon from "../assets/icon-bookmark-empty.svg"
 import bookmarkedFullIcon from "../assets/icon-bookmark-full.svg"
+import bookmarkedEmptyIconBlack from "../assets/icon-bookmark-empty-black.svg"
 import movieMiniIcon from "../assets/icon-category-movie.svg"
 import tvSerieMiniIcon from "../assets/icon-category-tv.svg"
 import { useMediaQuery } from '../hooks/useMediaQuery'
@@ -17,6 +18,7 @@ interface MotionPictureGridProps {
 const MotionPictureGrid = ({ motionPicture, isBookMarked, bookmarkHandler }: MotionPictureGridProps) => {
 
   const [isHover, setIsHover] = useState<boolean>(false)
+  const [isHoverBookmark, setIsHoverBookmark] = useState<boolean>(false)
   const isTablet = useMediaQuery('(min-width: 768px)')
   const isDesktop = useMediaQuery('(min-width: 1024px)')
 
@@ -27,6 +29,7 @@ const MotionPictureGrid = ({ motionPicture, isBookMarked, bookmarkHandler }: Mot
   return (
     <article className={`w-[calc(50%-8px)] cursor-pointer text-white relative md:w-[calc(((1/3)*100%)-20px)] lg:w-[calc(((1/4)*100%)-30px)]`} >
       <div className='w-100 rounded-lg mb-2 h-[110px] bg-cover md:h-[140px] lg:h-[174px]' style={style} onMouseOver={() => { setIsHover(true) }} onMouseLeave={() => { setIsHover(false) }}>
+        {/*Overlay*/}
         {(isHover && isDesktop) ? (
           <div className="w-full h-full flex  justify-center items-center" style={{
             backgroundImage: 'linear-gradient(0deg, rgba(16, 20, 30, 0.2), rgba(16, 20, 30, 0.2))'
@@ -46,9 +49,13 @@ const MotionPictureGrid = ({ motionPicture, isBookMarked, bookmarkHandler }: Mot
           }} ></div>
         ) : null}
       </div>
-      <div className='absolute top-[8px] right-[8px] bg-greyish-blue-opacity-50 p-[9px] rounded-full opacity-50 w-[32px] h-[32px] flex justify-center items-center cursor-pointer' onClick={() => bookmarkHandler(motionPicture._id)}>
-        <img src={isBookMarked ? bookmarkedFullIcon : bookmarkedEmptyIcon} alt="bookmarkIcon" className='w-100' />
+      
+      {/*BookmarkIcon*/}
+      <div className={`absolute top-[8px] right-[8px] ${(isHoverBookmark && !isBookMarked) ? 'bg-white' : 'bg-greyish-blue-opacity-50'} p-[9px] rounded-full opacity-50 w-[32px] h-[32px] flex justify-center items-center cursor-pointer`} onClick={()=>bookmarkHandler(motionPicture._id)} onMouseOver={() => { setIsHoverBookmark(true) }} onMouseLeave={() => { setIsHoverBookmark(false) }}>
+        <img src={isBookMarked ? bookmarkedFullIcon : isHoverBookmark ? bookmarkedEmptyIconBlack : bookmarkedEmptyIcon} alt="bookmarkIcon" className='w-100' />
       </div>
+      
+      {/*RegularContent*/}
       <div className='flex gap-[6px] items-center mb-1 text-grey md:gap-[8px]'>
         <span className='text-[11px] md:text-[13px]'>{motionPicture.year}</span>
         <span className='w-[2px] h-[2px] rounded-full bg-white inline-block'></span>

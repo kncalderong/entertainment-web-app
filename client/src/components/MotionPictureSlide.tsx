@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { MotionPictureType } from '../features/motionPictures/motionPictureSlice'
 import bookmarkedEmptyIcon from "../assets/icon-bookmark-empty.svg"
 import bookmarkedFullIcon from "../assets/icon-bookmark-full.svg"
+import bookmarkedEmptyIconBlack from "../assets/icon-bookmark-empty-black.svg"
 import movieMiniIcon from "../assets/icon-category-movie.svg"
 import tvSerieMiniIcon from "../assets/icon-category-tv.svg"
 import { useMediaQuery } from '../hooks/useMediaQuery'
@@ -14,6 +15,7 @@ interface MotionPictureSlideProps {
 const MotionPictureSlide = ({ motionPicture, isBookMarked, bookmarkHandler }: MotionPictureSlideProps) => {
   
   const [isHover, setIsHover] = useState<boolean>(false)
+  const [isHoverBookmark, setIsHoverBookmark] = useState<boolean>(false)
   const isTablet = useMediaQuery('(min-width: 768px)')
   const isDesktop = useMediaQuery('(min-width: 1024px)')
   
@@ -45,8 +47,8 @@ const MotionPictureSlide = ({ motionPicture, isBookMarked, bookmarkHandler }: Mo
         ) : null}
 
       {/*BookmarkIcon*/}
-      <div className='absolute top-[8px] right-[8px] bg-greyish-blue-opacity-50 p-[9px] rounded-full opacity-50 w-[32px] h-[32px] flex justify-center items-center cursor-pointer' onClick={()=>bookmarkHandler(motionPicture._id)}>
-        <img src={isBookMarked ? bookmarkedFullIcon : bookmarkedEmptyIcon} alt="bookmarkIcon" className='w-100' />
+      <div className={`absolute top-[8px] right-[8px] ${(isHoverBookmark && !isBookMarked) ? 'bg-white' : 'bg-greyish-blue-opacity-50'} p-[9px] rounded-full opacity-50 w-[32px] h-[32px] flex justify-center items-center cursor-pointer`} onClick={()=>bookmarkHandler(motionPicture._id)} onMouseOver={() => { setIsHoverBookmark(true) }} onMouseLeave={() => { setIsHoverBookmark(false) }}>
+        <img src={isBookMarked ? bookmarkedFullIcon : isHoverBookmark ? bookmarkedEmptyIconBlack : bookmarkedEmptyIcon} alt="bookmarkIcon" className='w-100' />
       </div>
       
       {/*RegularContent*/}
