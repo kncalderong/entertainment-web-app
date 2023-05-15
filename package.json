@@ -6,11 +6,11 @@
   "scripts": {
     "start": "nodemon server.ts",
     "start-prod": "node build/server.js",
-    "setup-production": "npm run install-client && npm run build-client && npm install && npm run build-server",
+    "setup-production": "npm run install-client && npm run build-client && npm run install-server && npm run build-server",
+    "install-server": "npm install",
     "build-server": "tsc",
     "install-client": "cd client && npm install",
     "build-client": "cd client && npm run build"
-
   },
   "keywords": [],
   "author": "",
