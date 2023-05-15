@@ -1,9 +1,9 @@
-import { RequestWithUser } from './../middleware/auth';
+import { RequestWithUser } from './../middleware/auth.js';
 import { StatusCodes } from 'http-status-codes';
-import User from "../models/User";
-import { BadRequestError, UnAuthenticatedError } from '../errors';
+import User from "../models/User.js";
+import { BadRequestError, UnAuthenticatedError } from '../errors/index.js';
 import { Request, Response } from 'express';
-import attachCookie from '../utils/attachCookie';
+import attachCookie from '../utils/attachCookie.js';
 
 
 /* ---------REGISTER ---------- */

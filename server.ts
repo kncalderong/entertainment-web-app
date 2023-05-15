@@ -16,18 +16,18 @@ import helmet from 'helmet';
 import mongoSanitize from 'express-mongo-sanitize';
 
 // db and authenticateUser
-import connectDB from './db/connect';
+import connectDB from './db/connect.js';
 
 //to get the cookies info in the  requests
 import cookieParser from 'cookie-parser'
 
 // routers
-import authRouter from './routes/authRoutes';
-import motionPictureRouter from './routes/motionPictureRoutes';
+import authRouter from './routes/authRoutes.js';
+import motionPictureRouter from './routes/motionPictureRoutes.js';
 
 // middlewares
-import errorHandlerMiddleware from './middleware/error-handler';
-import notFoundMiddleware from './middleware/not-found';
+import errorHandlerMiddleware from './middleware/error-handler.js';
+import notFoundMiddleware from './middleware/not-found.js';
 
 /* const __dirname = dirname(fileURLToPath(import.meta.url)); */
 

@@ -2,7 +2,7 @@
   "name": "entertainment-web-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.ts",
   "scripts": {
     "start": "nodemon server.ts",
     "start-prod": "node build/server.js",

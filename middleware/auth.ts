@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { UnAuthenticatedError } from '../errors';
+import { UnAuthenticatedError } from '../errors/index.js';
 import { Request, Response, NextFunction } from 'express'
 import mongoose from 'mongoose';
 
