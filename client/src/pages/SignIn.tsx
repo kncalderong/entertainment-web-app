@@ -14,6 +14,7 @@ interface ServerErrorResponse {
 const SignIn = () => {
 
   const [signInOption, setSignInOption] = useState<"login" | "register">("login")
+  const [guestUser, setGuestUser] = useState<boolean>(false)
   const emailRef = useRef<HTMLInputElement>(null)
   const [emailAlert, setEmailAlert] = useState({
     showAlert: false,
@@ -29,11 +30,11 @@ const SignIn = () => {
     showAlert: false,
     alertMessage: "Can't be empty"
   })
-  
-  
+
+
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  
+
   const resetForm = () => {
     emailRef.current!.value = ""
     passwordRef.current!.value = ""
@@ -81,15 +82,15 @@ const SignIn = () => {
         const res = await axios.post(urlLogin, { email: emailRef.current!.value, password: passwordRef.current!.value })
         const user = res.data.user
         dispatch(
-          addUser({...user})
+          addUser({ ...user })
         )
-        navigate('/')        
+        navigate('/')
       } catch (error) {
         const err = error as AxiosError
         if (err.response?.status === 401) {
           setPasswordAlert({ alertMessage: 'Invalid credentials', showAlert: true })
         }
-      }      
+      }
     }
     if (signInOption === "register") {
       const urlRegister = "/api/v1/auth/register"
@@ -97,18 +98,39 @@ const SignIn = () => {
         const res = await axios.post(urlRegister, { email: emailRef.current!.value, password: passwordRef.current!.value })
         const user = res.data.user
         dispatch(
-          addUser({...user})
+          addUser({ ...user })
         )
         navigate('/')
       } catch (error) {
         const err = error as AxiosError
         const errMsg = err.response!.data as ServerErrorResponse
         if (errMsg.msg === "Email already in use") {
-          setPasswordAlert({alertMessage: "Email already in use", showAlert: true })
+          setPasswordAlert({ alertMessage: "Email already in use", showAlert: true })
         }
       }
     }
   }
+
+  useEffect(() => {
+    if (guestUser) {
+      (async () => {
+        const urlLogin = "/api/v1/auth/login"
+        try {
+          const res = await axios.post(urlLogin, { email: "abc@gmail.com", password: "secret" })
+          const user = res.data.user
+          dispatch(
+            addUser({ ...user })
+          )
+          navigate('/')
+        } catch (error) {
+          const err = error as AxiosError
+          if (err.response?.status === 401) {
+            setPasswordAlert({ alertMessage: 'Invalid credentials', showAlert: true })
+          }
+        }
+      })()
+    }
+  }, [guestUser])
 
 
   return (
@@ -159,6 +181,10 @@ const SignIn = () => {
           <span className='cursor-pointer text-red' onClick={() => setSignInOption((prevValue) => {
             return prevValue === "login" ? "register" : 'login'
           })} >{signInOption === 'login' ? "Sign Up" : "Login"}</span>
+        </div>
+        <div className='flex gap-[9px] justify-center items-center  mb-2'>
+          <p className='text-white ' >Continue as</p>
+          <span className='cursor-pointer text-red' onClick={() => setGuestUser(true)} >guest</span>
         </div>
       </form>
     </main>
