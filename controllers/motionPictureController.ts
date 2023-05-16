@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
-import MotionPicture from "../models/MotionPicture.js";
+import MotionPicture from "models/MotionPicture.js";
 import { Request, Response } from 'express';
-import { RequestWithUser } from './../middleware/auth.js';
+import { RequestWithUser } from 'middleware/auth.js';
 import { StatusCodes } from "http-status-codes";
-import { BadRequestError } from "../errors/index.js";
-import User from '../models/User.js';
+import { BadRequestError } from "errors/index.js";
+import User from 'models/User.js';
 
 interface QueryObject {
   category?: string
