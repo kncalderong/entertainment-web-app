@@ -29,10 +29,10 @@ import motionPictureRouter from './routes/motionPictureRoutes.js';
 import errorHandlerMiddleware from './middleware/error-handler.js';
 import notFoundMiddleware from './middleware/not-found.js';
 
-/* const __dirname = dirname(fileURLToPath(import.meta.url)); */
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // only when ready to deploy
-app.use(express.static(path.resolve(__dirname, '../client/dist'))); //this middlewere allows access to all static files
+app.use(express.static(path.resolve(__dirname, './client/dist'))); //this middlewere allows access to all static files
 
 app.use(express.json()); //to allow reading body in json format
 app.use(cookieParser())
@@ -46,7 +46,7 @@ app.use('/api/v1/motion-picture', motionPictureRouter)
 
 // only when ready to deploy
 app.get('*', (req, res) => { //this middleware allows me to handle every possible route in the front end through the index.html, but it always must be called after my server routes (the above ones)
-  res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));
+    res.sendFile(path.resolve(__dirname, './client/dist', 'index.html'));
 });
 
 

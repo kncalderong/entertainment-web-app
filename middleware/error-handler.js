@@ -1,17 +1,15 @@
-import { NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import { Request, Response } from 'express';
 
-interface Error {
+/* interface Error {
   statusCode: number;
   message: string
   name?: string
   code?: number
   errors: []
   keyValue?: string
-}
+} */
 
-const errorHandlerMiddleware = (err: Error, req: Request, res: Response, next: NextFunction) => {  
+const errorHandlerMiddleware = (err, req, res, next) => {  
   const defaultError = {
     statusCode: err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR,
     msg: err.message || 'Something went wrong, try again later',

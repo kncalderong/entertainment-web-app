@@ -1,20 +1,18 @@
-import mongoose from 'mongoose';
-import MotionPicture from "../models/MotionPicture";
-import { Request, Response } from 'express';
-import { RequestWithUser } from '../middleware/auth';
+
+import MotionPicture from "../models/MotionPicture.js";
 import { StatusCodes } from "http-status-codes";
-import { BadRequestError } from "../errors/index";
+import { BadRequestError } from "../errors/index.js";
 import User from '../models/User.js';
 
-interface QueryObject {
+/* interface QueryObject {
   category?: string
   title?: any
   _id?: any
-}
+} */
 
 
 /**----------- CREATE MOTIONPICTURE -----------**/
-const createMotionPicture = async (req: Request, res: Response) => {
+const createMotionPicture = async (req, res) => {
   const {title, thumbnail, year, category, rating, isTrending = false} = req.body
   if (!title || !thumbnail || !year || !category || !rating ) {
     throw new BadRequestError('Please provide all values');
@@ -25,12 +23,12 @@ const createMotionPicture = async (req: Request, res: Response) => {
 
 
 /**----------- CET ALL MOTION PICTURES -----------**/
-const getAllMotionPictures = async (req: RequestWithUser, res: Response) => {
+const getAllMotionPictures = async (req, res) => {
   const { category, sort = 'a-z', search, bookmarks } = req.query;
   
   const user = await User.findOne({ _id: req.user?.userId || '' });
 
-  let queryObject: QueryObject = {}
+  let queryObject = {}
   
   if (category && category !== 'all' && typeof category === 'string') {
     queryObject.category = category

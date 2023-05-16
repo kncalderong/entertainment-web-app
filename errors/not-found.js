@@ -3,8 +3,8 @@ import CustomAPIError from "./custom-api.js";
 
 
 class NotFoundError extends CustomAPIError {
-  statusCode: number
-  constructor(message: string) {
+  statusCode
+  constructor(message) {
     super(message);
     this.statusCode = StatusCodes.NOT_FOUND
   }

@@ -2,21 +2,19 @@ import mongoose from "mongoose"
 import validator from 'validator'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-import {Schema, Model, Document } from 'mongoose';
 
-
-interface IUser extends Document {
+/* interface IUser extends Document {
   email: string;
   password: string;
   bookmarks: [mongoose.Types.ObjectId]
-}
+} */
 
-const UserSchema: Schema = new mongoose.Schema<IUser>({
+const UserSchema = new mongoose.Schema({
   email: {
     type: String,
     required: [true, 'Please provide email'],
     validate: {
-      validator: function (this: IUser) { //this is invoked when a user is created or modified with save() method
+      validator: function () { //this is invoked when a user is created or modified with save() method
         return validator.isEmail(this.email)
       },
       message: 'Please provide a valid email',
@@ -51,7 +49,7 @@ UserSchema.methods.createJWT = function () {
   })
 }
 
-UserSchema.methods.comparePassword = async function (candidatePassword: string) {
+UserSchema.methods.comparePassword = async function (candidatePassword) {
   const isMatch = await bcrypt.compare(candidatePassword, this.password)
   return isMatch
 }

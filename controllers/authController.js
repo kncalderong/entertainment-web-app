@@ -1,13 +1,10 @@
-import { RequestWithUser } from '../middleware/auth.js';
 import { StatusCodes } from 'http-status-codes';
 import User from "../models/User.js";
 import { BadRequestError, UnAuthenticatedError } from '../errors/index.js';
-import { Request, Response } from 'express';
 import attachCookie from '../utils/attachCookie.js';
 
-
 /* ---------REGISTER ---------- */
-const register = async (req: Request, res: Response) => {
+const register = async (req, res) => {
   const { email, password } = req.body;
   
   if (!email || !password) {
@@ -28,7 +25,7 @@ const register = async (req: Request, res: Response) => {
 }
 
 /* ---------LOGIN ---------- */
-const login = async (req: Request, res: Response) => {
+const login = async (req, res) => {
   const { email, password } = req.body;
   
   if (!email || !password) {
@@ -53,13 +50,13 @@ const login = async (req: Request, res: Response) => {
 }
 
 /* ---------GET CURRENT USER  ---------- */
-const getCurrentUser = async (req: RequestWithUser, res: Response) => { 
+const getCurrentUser = async (req, res) => { 
   const user = await User.findOne({ _id: req.user?.userId || ''}); // this is based on the token authorization middleware, so every time the front end reloads the page, this request is made to get the info from the current user again available
   res.status(StatusCodes.OK).json({ user, bookmarks: user?.bookmarks || [] });
 };
 
 /* ---------LOGOUT  ---------- */
-const logout = async (req: RequestWithUser, res: Response) => {
+const logout = async (req, res) => {
   res.cookie('token', 'logout', {
     httpOnly: true,
     expires: new Date(Date.now()), //expires immediately the coookie, so any further request won't have a valid cookie and in  the front I can redirect to landing page
@@ -68,7 +65,7 @@ const logout = async (req: RequestWithUser, res: Response) => {
 };
 
 /* --------- UPDATE USER ---------- */
-const updateUser = async (req: RequestWithUser , res: Response) => {
+const updateUser = async (req , res) => {
   const { bookmarks } = req.body;
   if (!bookmarks) {
     throw new BadRequestError('Please provide all values');

@@ -1,7 +1,6 @@
 import { StatusCodes } from 'http-status-codes';
-import { Request, Response } from 'express'
 
-const notFoundMiddleware = (req: Request, res: Response) => {
+const notFoundMiddleware = (req, res) => {
   res.status(StatusCodes.NOT_FOUND).send('Route does not exist')
 }
 
